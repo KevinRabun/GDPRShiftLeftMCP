@@ -27,10 +27,18 @@ A Model Context Protocol (MCP) server that brings **GDPR compliance knowledge di
 - Gap Analysis, DPIA Assessment, Compliance Roadmap, Data Mapping
 - Incident Response, Azure Privacy Review, Vendor Assessment, Cross-Border Transfers
 
-### 📐 Azure Bicep Templates
-- GDPR-compliant Storage Account (CMK, Private Endpoint, lifecycle policies)
-- GDPR-compliant Key Vault (HSM-backed, purge protection)
-- GDPR-compliant Azure SQL (Entra-only auth, TDE, auditing)
+### 📐 Azure Bicep Templates (11 Templates)
+- **Storage Account** — CMK encryption, Private Endpoint, lifecycle policies (Art. 5, 25, 32, 44-49)
+- **Key Vault** — HSM-backed Premium, purge protection, RBAC (Art. 25, 32)
+- **Azure SQL** — Entra-only auth, TDE, auditing (Art. 25, 32)
+- **Log Analytics** — 365-day retention, saved GDPR queries for breach/access/erasure tracking (Art. 5(2), 30, 33)
+- **Cosmos DB** — EU-only regions, strong consistency, continuous backup, TTL-enabled ROPA container (Art. 25, 32, 44-49)
+- **App Service** — Managed identity, TLS 1.2, VNet integration, staging slot, full audit logging (Art. 25, 32)
+- **Virtual Network** — 3 subnets, NSGs with least-privilege rules, service endpoints (Art. 25, 32, 5(1)(f))
+- **Container Apps** — Internal ingress, mutual TLS, zone redundancy, managed identity (Art. 25, 32)
+- **Monitor Alerts** — DPO action group, 4 scheduled alerts for sign-in/exfiltration/escalation/Key Vault (Art. 33, 34, 32)
+- **PostgreSQL Flexible Server** — Zone-redundant HA, Entra ID auth, pgaudit, geo-redundant backups (Art. 25, 32, 5(1)(e))
+- **Service Bus Premium** — CMK encryption, GDPR queues for DSR/consent/breach/retention (Art. 25, 32, 5(1)(f))
 
 ## Quick Start
 
