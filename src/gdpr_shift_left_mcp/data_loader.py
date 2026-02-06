@@ -28,11 +28,9 @@ logger = logging.getLogger(__name__)
 CACHE_DIR = Path(__file__).parent / "__gdpr_cache__"
 CACHE_TTL_SECONDS = 3600  # 1 hour default
 
-# Online source for structured GDPR text (placeholder — point to real endpoint)
-GDPR_SOURCE_URL = os.environ.get(
-    "GDPR_SOURCE_URL",
-    "https://raw.githubusercontent.com/AustinMathuw/gdpr/master/gdpr.json",
-)
+# Optional online source for structured GDPR text updates.
+# Set via environment variable to enable online refresh; otherwise bundled data is used.
+GDPR_SOURCE_URL = os.environ.get("GDPR_SOURCE_URL", "")
 
 # ─── Singleton ──────────────────────────────────────────────────────────────
 
@@ -157,41 +155,62 @@ class GDPRDataLoader:
     # ── Private — fetching ──────────────────────────────────────────────
 
     async def _fetch_or_cache(self) -> Dict[str, Any]:
-        """Return cached data if fresh, otherwise fetch online."""
+        """Return data using bundled-first strategy with optional online refresh.
+
+        Priority order:
+          1. Fresh cache (if online URL configured and cache within TTL)
+          2. Online fetch (if GDPR_SOURCE_URL env var is set)
+          3. Bundled vendored data (always available)
+        """
         cache_file = self._cache_dir / "gdpr_data.json"
         meta_file = self._cache_dir / "meta.json"
 
-        if cache_file.exists() and meta_file.exists():
-            meta = json.loads(meta_file.read_text())
-            if time.time() - meta.get("fetched_at", 0) < self._ttl:
-                logger.info("Using cached GDPR data (age %.0fs)", time.time() - meta["fetched_at"])
-                return json.loads(cache_file.read_text())
+        # If an online source is configured, try cache then online
+        if GDPR_SOURCE_URL:
+            if cache_file.exists() and meta_file.exists():
+                meta = json.loads(meta_file.read_text())
+                if time.time() - meta.get("fetched_at", 0) < self._ttl:
+                    logger.info("Using cached GDPR data (age %.0fs)", time.time() - meta["fetched_at"])
+                    return json.loads(cache_file.read_text())
 
-        # Try online fetch
-        try:
-            data = await self._fetch_online()
-            cache_file.write_text(json.dumps(data, ensure_ascii=False, indent=2))
-            meta_file.write_text(json.dumps({"fetched_at": time.time(), "source": GDPR_SOURCE_URL}))
-            logger.info("Fetched fresh GDPR data from %s", GDPR_SOURCE_URL)
-            return data
-        except Exception as exc:
-            logger.warning("Online fetch failed (%s); falling back to bundled data", exc)
-            if cache_file.exists():
-                return json.loads(cache_file.read_text())
-            return self._load_bundled()
+            # Try online fetch
+            try:
+                data = await self._fetch_online()
+                cache_file.write_text(json.dumps(data, ensure_ascii=False, indent=2))
+                meta_file.write_text(json.dumps({"fetched_at": time.time(), "source": GDPR_SOURCE_URL}))
+                logger.info("Fetched fresh GDPR data from %s", GDPR_SOURCE_URL)
+                return data
+            except Exception as exc:
+                logger.warning("Online fetch failed (%s); falling back to bundled data", exc)
+                if cache_file.exists():
+                    return json.loads(cache_file.read_text())
+
+        # Default: use bundled data
+        return self._load_bundled()
 
     async def _fetch_online(self) -> Dict[str, Any]:
-        """Fetch GDPR structured data from the configured URL."""
+        """Fetch GDPR structured data from the configured URL.
+
+        Only called when ``GDPR_SOURCE_URL`` environment variable is set.
+        """
+        if not GDPR_SOURCE_URL:
+            raise RuntimeError("No online source URL configured")
         async with httpx.AsyncClient(timeout=30) as client:
             resp = await client.get(GDPR_SOURCE_URL)
             resp.raise_for_status()
             return resp.json()
 
     def _load_bundled(self) -> Dict[str, Any]:
-        """Load the vendored fallback knowledge base."""
+        """Load the vendored GDPR knowledge base.
+
+        The bundled file contains all 99 GDPR articles, 173 recitals, and
+        26 Article 4 definitions sourced from gdpr-info.eu.
+        See ``scripts/build_gdpr_data.py`` to regenerate.
+        """
         bundled = Path(__file__).parent / "data" / "gdpr_bundled.json"
         if bundled.exists():
-            return json.loads(bundled.read_text())
+            logger.info("Loading bundled GDPR data from %s", bundled)
+            return json.loads(bundled.read_text(encoding="utf-8"))
         # Return minimal skeleton so the server can still start
         logger.warning("No bundled GDPR data found; returning empty skeleton")
         return {"chapters": [], "recitals": [], "definitions": []}
