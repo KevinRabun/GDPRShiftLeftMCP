@@ -1,5 +1,7 @@
 # GDPR Shift-Left MCP Server
 
+<!-- mcp-name: io.github.KevinRabun/GDPRShiftLeftMCP -->
+
 A Model Context Protocol (MCP) server that brings **GDPR compliance knowledge directly into your IDE**, enabling developers and compliance teams to "shift left" — identifying and addressing data protection requirements early in the development lifecycle.
 
 > **⚠️ Disclaimer:** This tool provides informational guidance only and **does not constitute legal advice**. Organisations should consult qualified legal counsel for binding GDPR compliance decisions.
