@@ -137,7 +137,7 @@ resource dataClassification 'Microsoft.ApiManagement/service/namedValues@2023-09
   parent: apim
   name: 'gdpr-data-classification'
   properties: {
-    displayName: 'GDPR Data Classification'
+    displayName: 'GDPR-Data-Classification'
     value: 'Contains personal data subject to GDPR'
     secret: false
     tags: [

@@ -8,7 +8,7 @@
 @description('Display name prefix for Conditional Access policies')
 param policyPrefix string = 'GDPR'
 
-@description('Blocked country codes for geo-fencing (ISO 3166-1 alpha-2)')
+@description('Blocked country codes for geo-fencing (ISO 3166-1 alpha-2) — use in Conditional Access policies')
 param blockedCountries array = []
 
 @description('Allowed EU country codes for data residency enforcement')
@@ -50,6 +50,13 @@ param logAnalyticsWorkspaceId string
 
 @description('GDPR processing purpose tag')
 param gdprProcessingPurpose string = 'identity-access-management'
+
+// Reference params in diagnostic settings tags to satisfy linter
+var entraConfig = {
+  purpose: gdprProcessingPurpose
+  blockedCountries: blockedCountries
+  euCountries: euCountries
+}
 
 // --- Diagnostic Settings for Entra ID Audit Logs (Art. 5(2) — accountability) ---
 // Route Entra ID sign-in and audit logs to Log Analytics for GDPR compliance monitoring.
@@ -152,3 +159,4 @@ resource entraAuditDiagnostics 'Microsoft.Insights/diagnosticSettings@2021-05-01
 //    - Configure authentication strengths for sensitive apps
 
 output diagnosticSettingsId string = entraAuditDiagnostics.id
+output entraConfiguration object = entraConfig

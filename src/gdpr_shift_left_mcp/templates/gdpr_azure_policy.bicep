@@ -1,8 +1,7 @@
 // GDPR-Compliant Azure Policy Assignments — Enforce data residency, encryption, tagging, and audit
 // Addresses: Art. 25 — Privacy by design/default, Art. 32 — Security, Art. 5(2) — Accountability
 
-@description('Policy assignment scope (subscription or resource group ID)')
-param scope string = subscription().id
+targetScope = 'subscription'
 
 @description('Allowed Azure regions for GDPR data residency enforcement')
 param allowedLocations array = [
@@ -23,13 +22,13 @@ param allowedLocations array = [
 ])
 param encryptionPolicyEffect string = 'Deny'
 
-@description('Effect for location policies: Audit, Deny, or Disabled')
+@description('Effect for location and tag policies: Audit, Deny, or Disabled')
 @allowed([
   'Audit'
   'Deny'
   'Disabled'
 ])
-param locationPolicyEffect string = 'Deny'
+param tagPolicyEffect string = 'Deny'
 
 @description('Required tags for GDPR data classification')
 param requiredTags array = [
@@ -118,7 +117,7 @@ resource requiredTagPolicies 'Microsoft.Authorization/policyAssignments@2024-04-
         value: tag
       }
     }
-    enforcementMode: 'Default'
+    enforcementMode: tagPolicyEffect == 'Disabled' ? 'DoNotEnforce' : 'Default'
   }
 }]
 

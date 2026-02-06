@@ -1,6 +1,8 @@
 // GDPR-Compliant Microsoft Defender for Cloud — Threat protection, vulnerability assessment, compliance
 // Addresses: Art. 32 — Security of processing, Art. 33 — Breach notification, Art. 5(2) — Accountability
 
+targetScope = 'subscription'
+
 @description('Enable Defender for Servers plan')
 param enableServers bool = true
 
@@ -40,7 +42,7 @@ param securityContactEmails string
 @description('Phone number for critical security alerts')
 param securityContactPhone string = ''
 
-@description('DPO email for GDPR breach notifications')
+@description('DPO email for GDPR breach notifications — include in securityContactEmails')
 param dpoEmail string = ''
 
 // --- Defender for Cloud Pricing Tiers (Art. 32 — security of processing) ---
@@ -119,22 +121,25 @@ resource defenderOssDatabases 'Microsoft.Security/pricings@2024-01-01' = if (ena
 }
 
 // --- Security Contacts (Art. 33 — breach notification) ---
+// Combine securityContactEmails with dpoEmail for full notification coverage
+var allEmails = empty(dpoEmail) ? securityContactEmails : '${securityContactEmails};${dpoEmail}'
+
 resource securityContact 'Microsoft.Security/securityContacts@2023-12-01-preview' = {
   name: 'default'
   properties: {
-    emails: securityContactEmails
+    emails: allEmails
     phone: securityContactPhone
-    notificationsByRole: {
-      state: 'On'
-      roles: [
-        'Owner'
-        'ServiceAdmin'
-      ]
-    }
-    alertNotifications: {
-      state: 'On'
-      minimalSeverity: 'Medium' // Art. 33 — alert on medium+ severity
-    }
+    isEnabled: true
+    notificationsSources: [
+      {
+        sourceType: 'Alert'
+        minimalSeverity: 'Medium' // Art. 33 — alert on medium+ severity
+      }
+      {
+        sourceType: 'AttackPath'
+        minimalRiskLevel: 'High'
+      }
+    ]
   }
 }
 
