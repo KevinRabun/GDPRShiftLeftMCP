@@ -9,6 +9,7 @@ import sys
 
 from .judge import judge
 from . import checks  # noqa: F401 — registers all judges
+from . import checks_comprehensive  # noqa: F401 — registers comprehensive judges
 
 
 async def main() -> int:
