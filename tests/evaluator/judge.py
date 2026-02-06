@@ -51,8 +51,8 @@ class JudgeReport:
             "=" * 60,
         ]
         for r in self.results:
-            icon = "✅" if r.passed else "❌"
-            lines.append(f"  {icon} {r.name}: {r.message}")
+            icon = "PASS" if r.passed else "FAIL"
+            lines.append(f"  [{icon}] {r.name}: {r.message}")
             if r.details and not r.passed:
                 for detail_line in r.details.splitlines():
                     lines.append(f"      {detail_line}")
