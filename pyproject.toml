@@ -1,0 +1,51 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "gdpr-shift-left-mcp"
+version = "0.1.0"
+description = "GDPR Shift-Left Compliance MCP Server — Azure-first GDPR guidance, code review, and audit tools"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+authors = [
+    {name = "GDPR Shift Left MCP Contributors"}
+]
+keywords = ["gdpr", "compliance", "mcp", "azure", "shift-left", "privacy"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Security",
+]
+
+dependencies = [
+    "mcp>=1.2.0",
+    "httpx>=0.27.0",
+    "openpyxl>=3.1.0",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-asyncio>=0.21",
+    "pytest-cov>=4.0",
+    "bandit>=1.7",
+    "safety>=2.3",
+]
+
+[project.scripts]
+gdpr-shift-left-mcp = "gdpr_shift_left_mcp:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/gdpr_shift_left_mcp"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"

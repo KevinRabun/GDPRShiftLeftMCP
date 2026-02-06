@@ -1,0 +1,9 @@
+{
+  "servers": {
+    "gdpr-shift-left-mcp": {
+      "type": "stdio",
+      "command": "python",
+      "args": ["-m", "gdpr_shift_left_mcp"]
+    }
+  }
+}
