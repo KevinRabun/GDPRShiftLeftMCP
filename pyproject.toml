@@ -21,7 +21,9 @@ classifiers = [
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
     "Topic :: Security",
+    "Topic :: Software Development :: Quality Assurance",
 ]
 
 dependencies = [
@@ -33,15 +35,21 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = [
-    "pytest>=7.0",
-    "pytest-asyncio>=0.21",
-    "pytest-cov>=4.0",
-    "bandit>=1.7",
-    "safety>=2.3",
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+    "pytest-cov>=4.1.0",
+    "bandit>=1.7.0",
+    "safety>=3.0.0",
 ]
 
 [project.scripts]
 gdpr-shift-left-mcp = "gdpr_shift_left_mcp:main"
+
+[project.urls]
+Homepage = "https://github.com/KevinRabun/GDPRShiftLeftMCP"
+Documentation = "https://github.com/KevinRabun/GDPRShiftLeftMCP#readme"
+Repository = "https://github.com/KevinRabun/GDPRShiftLeftMCP"
+Issues = "https://github.com/KevinRabun/GDPRShiftLeftMCP/issues"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/gdpr_shift_left_mcp"]
@@ -49,3 +57,21 @@ packages = ["src/gdpr_shift_left_mcp"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = ["-v", "--strict-markers", "--strict-config"]
+
+[tool.coverage.run]
+source = ["src"]
+omit = ["tests/*", "**/__pycache__/*"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+]
