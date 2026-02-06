@@ -104,7 +104,7 @@ async def generate_dpia_template_impl(processing_description: str, data_loader) 
 
 ---
 
-### 1. Processing Activity Description
+### 1. Systematic Description of Processing (Art. 35(7)(a))
 
 **Activity:** {desc}
 

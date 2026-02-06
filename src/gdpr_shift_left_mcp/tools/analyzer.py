@@ -33,7 +33,7 @@ GDPR_IAC_CHECKS: List[Dict[str, Any]] = [
         "title": "Encryption in transit",
         "severity": "CRITICAL",
         "check_keywords": ["https", "tls", "minTlsVersion", "minimum_tls_version", "httpsOnly"],
-        "fail_keywords": ["httpsOnly.*false", "http_only.*false", "minTlsVersion.*1\\.0"],
+        "fail_keywords": ["httpsOnly.*false", "http_only.*false", "minTlsVersion.*1\.0", "minimum_tls_version.*1\.0", "minimumTlsVersion.*1[._]0", "TLS1[._]0"],
         "message": "Enforce TLS 1.2+ for all data in transit (Art. 32 — security of processing).",
         "azure_fix": "Set minTlsVersion to '1.2', enable httpsOnly on App Services and Storage.",
     },
@@ -138,7 +138,7 @@ async def analyze_infrastructure_code_impl(
     for check in GDPR_IAC_CHECKS:
         # Check for fail patterns (explicit misconfigurations)
         for fail_pat in check.get("fail_keywords", []):
-            if re.search(fail_pat, code_lower):
+            if re.search(fail_pat, code_lower, re.IGNORECASE):
                 findings.append({
                     "id": check["id"],
                     "severity": check["severity"],
@@ -178,6 +178,20 @@ async def analyze_infrastructure_code_impl(
                     "message": check["message"],
                     "fix": check["azure_fix"],
                 })
+        elif has_keyword and check.get("region_check"):
+            # location/region keyword IS present — still check for non-EU regions
+            for region in NON_EU_REGIONS:
+                if region in code_lower:
+                    findings.append({
+                        "id": check["id"],
+                        "severity": "CRITICAL",
+                        "article": check["article"],
+                        "title": check["title"],
+                        "type": "VIOLATION",
+                        "message": f"Non-EU region '{region}' detected. {check['message']}",
+                        "fix": check["azure_fix"],
+                    })
+                    break
 
     # Format output
     result = f"# GDPR Infrastructure Code Analysis\n\n"
