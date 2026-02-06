@@ -62,6 +62,8 @@ resource actionGroup 'Microsoft.Insights/actionGroups@2023-09-01-preview' = {
     ] : []
   }
   tags: {
+    gdpr_compliant: 'true'
+    gdpr_processing_purpose: gdprProcessingPurpose
     'gdpr-purpose': gdprProcessingPurpose
     'gdpr-article': 'Art-33-Art-34'
   }

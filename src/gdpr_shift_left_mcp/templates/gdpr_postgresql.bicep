@@ -108,6 +108,8 @@ resource postgresServer 'Microsoft.DBforPostgreSQL/flexibleServers@2024-08-01' =
     }
   }
   tags: {
+    gdpr_compliant: 'true'
+    gdpr_processing_purpose: gdprProcessingPurpose
     'gdpr-purpose': gdprProcessingPurpose
     'gdpr-article': 'Art-25-Art-32'
     'gdpr-data-category': gdprDataCategory

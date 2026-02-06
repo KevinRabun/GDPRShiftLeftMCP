@@ -46,6 +46,14 @@ A Model Context Protocol (MCP) server that brings **GDPR compliance knowledge di
 - **Monitor Alerts** — DPO action group, 4 scheduled alerts for sign-in/exfiltration/escalation/Key Vault (Art. 33, 34, 32)
 - **PostgreSQL Flexible Server** — Zone-redundant HA, Entra ID auth, pgaudit, geo-redundant backups (Art. 25, 32, 5(1)(e))
 - **Service Bus Premium** — CMK encryption, GDPR queues for DSR/consent/breach/retention (Art. 25, 32, 5(1)(f))
+- **AKS** — Private cluster, Azure CNI, Defender for Containers, workload identity, network policies (Art. 25, 32, 5(1)(f))
+- **Confidential Ledger** — TEE-backed tamper-proof audit trail for GDPR accountability records (Art. 5(2), 30, 33)
+- **Confidential VM** — AMD SEV-SNP encrypted memory, vTPM, secure boot, ephemeral OS disk (Art. 25, 32, 5(1)(f))
+- **Entra ID Configuration** — Audit log routing, sign-in monitoring, Conditional Access checklist (Art. 32, 5(2))
+- **Azure Policy** — EU region restriction, CMK enforcement, tag requirements, HTTPS-only (Art. 25, 32, 44)
+- **Defender for Cloud** — All Defender plans, security contacts, auto-provisioning, GDPR compliance dashboard (Art. 32, 33)
+- **API Management** — Internal VNet, TLS 1.2+, rate limiting, data masking policies, audit logging (Art. 25, 32, 30)
+- **Front Door with WAF** — OWASP rules, EU/EEA geo-filtering, bot protection, rate limiting (Art. 25, 32, 44)
 
 ## Quick Start
 

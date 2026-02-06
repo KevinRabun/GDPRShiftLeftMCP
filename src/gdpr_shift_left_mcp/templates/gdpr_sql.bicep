@@ -42,6 +42,8 @@ resource sqlServer 'Microsoft.Sql/servers@2023-08-01-preview' = {
     publicNetworkAccess: 'Disabled'
   }
   tags: {
+    gdpr_compliant: 'true'
+    gdpr_processing_purpose: 'personal-data-storage'
     'gdpr-encryption': 'TDE-CMK'
     'gdpr-auth': 'EntraID-only'
     'gdpr-public-access': 'disabled'

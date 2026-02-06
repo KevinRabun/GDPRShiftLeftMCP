@@ -35,6 +35,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install -e ".[dev]"
 
+      - name: Install Bicep CLI
+        if: matrix.python-version == '3.12'
+        run: az bicep install
+
       - name: Verify MCP server import
         run: python -c "from gdpr_shift_left_mcp import main; print('Import successful')"
 
