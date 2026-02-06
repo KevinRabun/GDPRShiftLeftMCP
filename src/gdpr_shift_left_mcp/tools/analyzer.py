@@ -33,7 +33,7 @@ GDPR_IAC_CHECKS: List[Dict[str, Any]] = [
         "title": "Encryption in transit",
         "severity": "CRITICAL",
         "check_keywords": ["https", "tls", "minTlsVersion", "minimum_tls_version", "httpsOnly"],
-        "fail_keywords": ["httpsOnly.*false", "http_only.*false", "minTlsVersion.*1\.0", "minimum_tls_version.*1\.0", "minimumTlsVersion.*1[._]0", "TLS1[._]0"],
+        "fail_keywords": [r"httpsOnly.*false", r"http_only.*false", r"minTlsVersion.*1\.0", r"minimum_tls_version.*1\.0", r"minimumTlsVersion.*1[._]0", r"TLS1[._]0"],
         "message": "Enforce TLS 1.2+ for all data in transit (Art. 32 — security of processing).",
         "azure_fix": "Set minTlsVersion to '1.2', enable httpsOnly on App Services and Storage.",
     },
