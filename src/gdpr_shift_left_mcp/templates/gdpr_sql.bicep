@@ -68,6 +68,25 @@ resource sqlDatabase 'Microsoft.Sql/servers/databases@2023-08-01-preview' = {
   }
 }
 
+// --- Diagnostic Settings (Art. 5(2) — Accountability, send to Log Analytics) ---
+resource sqlDiagnostics 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = if (!empty(logAnalyticsWorkspaceId)) {
+  name: '${sqlServerName}-diag'
+  scope: sqlDatabase
+  properties: {
+    workspaceId: logAnalyticsWorkspaceId
+    logs: [
+      {
+        category: 'SQLSecurityAuditEvents'
+        enabled: true
+        retentionPolicy: {
+          enabled: true
+          days: gdprRetentionDays
+        }
+      }
+    ]
+  }
+}
+
 // --- Auditing (Art. 5(2) — Accountability) ---
 resource sqlAuditing 'Microsoft.Sql/servers/auditingSettings@2023-08-01-preview' = {
   parent: sqlServer

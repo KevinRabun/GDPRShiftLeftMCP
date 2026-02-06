@@ -117,24 +117,24 @@ class TestArticleTools:
 
     @pytest.mark.asyncio
     async def test_get_article_includes_disclaimer(self, mock_data_loader):
-        result = await get_article_impl(5, mock_data_loader)
+        result = await get_article_impl("5", mock_data_loader)
         assert LEGAL_DISCLAIMER in result
 
     @pytest.mark.asyncio
     async def test_get_article_shows_title(self, mock_data_loader):
-        result = await get_article_impl(5, mock_data_loader)
+        result = await get_article_impl("5", mock_data_loader)
         assert "Principles" in result or "Article 5" in result
 
     @pytest.mark.asyncio
     async def test_get_article_not_found(self, mock_data_loader):
         mock_data_loader.get_article = MagicMock(return_value=None)
-        result = await get_article_impl(999, mock_data_loader)
+        result = await get_article_impl("999", mock_data_loader)
         assert LEGAL_DISCLAIMER in result
         assert "not found" in result.lower() or "999" in result
 
     @pytest.mark.asyncio
     async def test_list_chapter_articles(self, mock_data_loader):
-        result = await list_chapter_articles_impl(2, mock_data_loader)
+        result = await list_chapter_articles_impl("2", mock_data_loader)
         assert LEGAL_DISCLAIMER in result
 
     @pytest.mark.asyncio
@@ -144,7 +144,7 @@ class TestArticleTools:
 
     @pytest.mark.asyncio
     async def test_get_recital(self, mock_data_loader):
-        result = await get_recital_impl(1, mock_data_loader)
+        result = await get_recital_impl("1", mock_data_loader)
         assert LEGAL_DISCLAIMER in result
 
     @pytest.mark.asyncio
