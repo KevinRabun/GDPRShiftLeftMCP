@@ -2,17 +2,17 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.KevinRabun/GDPRShiftLeftMCP",
   "title": "GDPR Shift-Left Compliance",
-  "description": "An MCP server that brings GDPR compliance knowledge directly into your IDE - article lookup, DPIA assessment, ROPA builder, DSR workflows, IaC analysis, and Azure Bicep templates.",
+  "description": "GDPR compliance MCP server - article lookup, DPIA, ROPA, DSR, IaC analysis, Bicep templates.",
   "repository": {
     "url": "https://github.com/KevinRabun/GDPRShiftLeftMCP",
     "source": "github"
   },
-  "version": "0.1.0",
+  "version": "0.1.2",
   "packages": [
     {
       "registryType": "pypi",
       "identifier": "gdpr-shift-left-mcp",
-      "version": "0.1.0",
+      "version": "0.1.2",
       "runtimeHint": "uvx",
       "transport": {
         "type": "stdio"
