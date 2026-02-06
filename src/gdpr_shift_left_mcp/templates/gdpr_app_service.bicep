@@ -28,9 +28,6 @@ param privateEndpointSubnetId string
 @description('Resource ID of the Log Analytics workspace for diagnostics')
 param logAnalyticsWorkspaceId string = ''
 
-@description('Resource ID of the Key Vault for application secrets')
-param keyVaultId string = ''
-
 @description('Application runtime stack')
 @allowed([
   'PYTHON|3.12'

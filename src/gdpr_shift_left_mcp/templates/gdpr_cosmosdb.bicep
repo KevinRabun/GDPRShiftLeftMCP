@@ -52,6 +52,8 @@ resource cosmosAccount 'Microsoft.DocumentDB/databaseAccounts@2024-05-15' = {
   location: location
   kind: 'GlobalDocumentDB'
   properties: {
+    databaseAccountOfferType: 'Standard'
+
     // Art. 44-49 — Restrict to EU regions only
     locations: [
       {
