@@ -2,6 +2,11 @@
 
 <!-- mcp-name: io.github.KevinRabun/GDPRShiftLeftMCP -->
 
+[![Tests & Judges](https://github.com/KevinRabun/GDPRShiftLeftMCP/actions/workflows/test.yml/badge.svg)](https://github.com/KevinRabun/GDPRShiftLeftMCP/actions/workflows/test.yml)
+[![PyPI version](https://img.shields.io/pypi/v/gdpr-shift-left-mcp)](https://pypi.org/project/gdpr-shift-left-mcp/)
+[![Python versions](https://img.shields.io/pypi/pyversions/gdpr-shift-left-mcp)](https://pypi.org/project/gdpr-shift-left-mcp/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
 A Model Context Protocol (MCP) server that brings **GDPR compliance knowledge directly into your IDE**, enabling developers and compliance teams to "shift left" — identifying and addressing data protection requirements early in the development lifecycle.
 
 > **⚠️ Disclaimer:** This tool provides informational guidance only and **does not constitute legal advice**. Organisations should consult qualified legal counsel for binding GDPR compliance decisions.
