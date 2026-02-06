@@ -1,0 +1,17 @@
+{
+  "name": "gdpr-shift-left-mcp",
+  "version": "0.1.0",
+  "description": "GDPR Shift-Left Compliance MCP Server — Azure-first GDPR guidance, code review, and audit tools",
+  "repository": "https://github.com/KevinRabun/GDPRShiftLeftMCP",
+  "license": "MIT",
+  "packages": [
+    {
+      "registry": "pip",
+      "name": "gdpr-shift-left-mcp",
+      "version": "0.1.0",
+      "runtime": "python",
+      "entrypoint": "gdpr_shift_left_mcp",
+      "transport": "stdio"
+    }
+  ]
+}
