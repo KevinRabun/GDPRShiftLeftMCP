@@ -52,6 +52,8 @@ resource cosmosAccount 'Microsoft.DocumentDB/databaseAccounts@2024-05-15' = {
   location: location
   kind: 'GlobalDocumentDB'
   properties: {
+    databaseAccountOfferType: 'Standard'
+
     // Art. 44-49 — Restrict to EU regions only
     locations: [
       {
@@ -103,6 +105,8 @@ resource cosmosAccount 'Microsoft.DocumentDB/databaseAccounts@2024-05-15' = {
     ]
   }
   tags: {
+    gdpr_compliant: 'true'
+    gdpr_processing_purpose: gdprProcessingPurpose
     'gdpr-purpose': gdprProcessingPurpose
     'gdpr-article': 'Art-25-Art-32-Art-44'
     'gdpr-data-category': gdprDataCategory

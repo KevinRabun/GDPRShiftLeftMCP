@@ -22,9 +22,6 @@ param retentionInDays int = 365
 @description('Enable data export for long-term GDPR record archival')
 param enableDataExport bool = false
 
-@description('Enable purge protection — prevents accidental deletion of audit evidence')
-param enablePurgeProtection bool = true
-
 @description('Daily ingestion cap in GB (0 = unlimited). Use to control costs while ensuring compliance.')
 param dailyQuotaGb int = 0
 
@@ -59,6 +56,8 @@ resource workspace 'Microsoft.OperationalInsights/workspaces@2023-09-01' = {
     }
   }
   tags: {
+    gdpr_compliant: 'true'
+    gdpr_processing_purpose: gdprProcessingPurpose
     'gdpr-purpose': gdprProcessingPurpose
     'gdpr-article': 'Art-5-2-Art-30-Art-33'
     'gdpr-data-category': 'audit-logs'

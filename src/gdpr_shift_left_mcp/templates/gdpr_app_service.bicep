@@ -28,9 +28,6 @@ param privateEndpointSubnetId string
 @description('Resource ID of the Log Analytics workspace for diagnostics')
 param logAnalyticsWorkspaceId string = ''
 
-@description('Resource ID of the Key Vault for application secrets')
-param keyVaultId string = ''
-
 @description('Application runtime stack')
 @allowed([
   'PYTHON|3.12'
@@ -115,6 +112,8 @@ resource appService 'Microsoft.Web/sites@2023-12-01' = {
     }
   }
   tags: {
+    gdpr_compliant: 'true'
+    gdpr_processing_purpose: gdprProcessingPurpose
     'gdpr-purpose': gdprProcessingPurpose
     'gdpr-article': 'Art-25-Art-32'
     'gdpr-data-category': gdprDataCategory

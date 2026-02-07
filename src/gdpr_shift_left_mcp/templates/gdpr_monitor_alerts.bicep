@@ -26,9 +26,6 @@ param smsCountryCode string = '44'
 @description('Resource ID of the Log Analytics workspace to monitor')
 param logAnalyticsWorkspaceId string
 
-@description('Resource ID of the Application Insights instance')
-param appInsightsId string = ''
-
 @description('GDPR processing purpose tag')
 param gdprProcessingPurpose string = 'breach-notification'
 
@@ -62,6 +59,8 @@ resource actionGroup 'Microsoft.Insights/actionGroups@2023-09-01-preview' = {
     ] : []
   }
   tags: {
+    gdpr_compliant: 'true'
+    gdpr_processing_purpose: gdprProcessingPurpose
     'gdpr-purpose': gdprProcessingPurpose
     'gdpr-article': 'Art-33-Art-34'
   }

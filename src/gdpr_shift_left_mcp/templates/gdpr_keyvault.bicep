@@ -44,6 +44,8 @@ resource keyVault 'Microsoft.KeyVault/vaults@2023-07-01' = {
     }
   }
   tags: {
+    gdpr_compliant: 'true'
+    gdpr_processing_purpose: 'encryption-key-management'
     'gdpr-purpose': 'encryption-key-management'
     'gdpr-article': 'Art-32'
   }
