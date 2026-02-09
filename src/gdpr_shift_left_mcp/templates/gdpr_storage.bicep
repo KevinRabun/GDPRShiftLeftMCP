@@ -72,6 +72,8 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2023-05-01' = {
     }
   }
   tags: {
+    gdpr_compliant: 'true'
+    gdpr_processing_purpose: gdprProcessingPurpose
     'gdpr-processing-purpose': gdprProcessingPurpose
     'gdpr-data-category': gdprDataCategory
     'gdpr-retention-days': string(gdprRetentionDays)

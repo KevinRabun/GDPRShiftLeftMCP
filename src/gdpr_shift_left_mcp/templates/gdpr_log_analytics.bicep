@@ -59,6 +59,8 @@ resource workspace 'Microsoft.OperationalInsights/workspaces@2023-09-01' = {
     }
   }
   tags: {
+    gdpr_compliant: 'true'
+    gdpr_processing_purpose: gdprProcessingPurpose
     'gdpr-purpose': gdprProcessingPurpose
     'gdpr-article': 'Art-5-2-Art-30-Art-33'
     'gdpr-data-category': 'audit-logs'

@@ -85,6 +85,8 @@ resource vnet 'Microsoft.Network/virtualNetworks@2023-11-01' = {
     ]
   }
   tags: {
+    gdpr_compliant: 'true'
+    gdpr_processing_purpose: gdprProcessingPurpose
     'gdpr-purpose': gdprProcessingPurpose
     'gdpr-article': 'Art-25-Art-32'
   }
