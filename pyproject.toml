@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "gdpr-shift-left-mcp"
-version = "0.1.3"
+version = "0.2.0"
 description = "GDPR Shift-Left Compliance MCP Server — Azure-first GDPR guidance, code review, and audit tools"
 readme = "README.md"
 license = {text = "MIT"}
