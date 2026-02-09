@@ -59,7 +59,6 @@ SAMPLE_ARTICLE = {
     "chapter_number": "2",
     "chapter_title": "Principles",
     "text": "Personal data shall be processed lawfully, fairly and in a transparent manner.",
-    "paragraphs": [],
 }
 
 SAMPLE_RECITAL = {

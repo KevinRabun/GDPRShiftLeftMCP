@@ -234,7 +234,6 @@ class GDPRDataLoader:
                         "chapter_number": chapter_num,
                         "chapter_title": chapter_title,
                         "text": art.get("content", art.get("text", art.get("article_text", ""))),
-                        "paragraphs": art.get("paragraphs", []),
                     }
                     self._articles[article_num] = enriched
                     articles_in_chapter.append(enriched)
@@ -266,11 +265,7 @@ class GDPRDataLoader:
     def _extract_definitions_from_article_4(self) -> None:
         """Best-effort parse of Art. 4 text into individual definitions."""
         art4 = self._articles.get("4", {})
-        paragraphs = art4.get("paragraphs", [])
-        if not paragraphs:
-            text = art4.get("text", "")
-            if text:
-                paragraphs = [{"text": text}]
+        text = art4.get("text", "")
 
         KNOWN_TERMS = {
             "personal data": "any information relating to an identified or identifiable natural person ('data subject')",
