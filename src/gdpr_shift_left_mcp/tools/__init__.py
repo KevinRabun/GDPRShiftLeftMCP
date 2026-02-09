@@ -276,4 +276,4 @@ def register_tools(mcp: "FastMCP", data_loader: "GDPRDataLoader"):
         """
         return await retention.check_deletion_requirements_impl(system_context, data_loader)
 
-    logger.info("Registered 24 GDPR tools across 7 modules")
+    logger.info("Registered 23 GDPR tools across 7 modules")
