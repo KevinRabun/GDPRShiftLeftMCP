@@ -66,6 +66,52 @@ def fetch_page(url: str, retries: int = 3) -> str:
     return ""
 
 
+def clean_navigation_artifacts(text: str) -> str:
+    """Remove navigation artifacts from scraped text."""
+    # Remove navigation patterns at the end of text
+    patterns_to_remove = [
+        r'\n←\s*$',  # Standalone left arrow
+        r'\n→\s*$',  # Standalone right arrow
+        r'\nArt\.\s*\d+\s*GDPR\s*$',  # "Art. N GDPR" at end
+        r'\n←\s*\nArt\.\s*\d+\s*GDPR.*$',  # "← Art. N GDPR..." section
+        r'\nGDPR\s*$',  # Standalone "GDPR"
+        r'\nTable of contents\s*$',  # "Table of contents"
+        r'\nReport error\s*$',  # "Report error"
+        r'\nAll recitals\s*$',  # "All recitals" for recitals
+        r'\nRecital\s*\d+\s*→\s*$',  # "Recital N →" at end
+        r'\n←\s*Recital\s*\d+\s*$',  # "← Recital N" at end
+    ]
+    
+    # Apply patterns repeatedly until no more changes
+    prev_text = None
+    while prev_text != text:
+        prev_text = text
+        for pattern in patterns_to_remove:
+            text = re.sub(pattern, '', text, flags=re.IGNORECASE | re.DOTALL)
+    
+    # Final cleanup: remove full navigation blocks
+    # Article navigation: "← Art. X GDPR Art. Y GDPR → GDPR Table of contents Report error"
+    text = re.sub(
+        r'\n←\n.*?Report error\s*$',
+        '',
+        text,
+        flags=re.DOTALL
+    )
+    
+    # Recital navigation: "← Recital X Recital Y → All recitals"
+    text = re.sub(
+        r'\n←\s*Recital\s*\d+\s+Recital\s*\d+\s*→\s*All recitals\s*$',
+        '',
+        text,
+        flags=re.IGNORECASE | re.DOTALL
+    )
+    
+    # Remove unofficial title markers
+    text = re.sub(r'\*\s*This title is an unofficial description\.\s*', '', text)
+    
+    return text.strip()
+
+
 def extract_article_text(html: str) -> dict:
     """Extract article title and text from a gdpr-info.eu article page."""
     soup = BeautifulSoup(html, "lxml")
@@ -84,7 +130,7 @@ def extract_article_text(html: str) -> dict:
     # The article content is in the .entry-content div
     content_div = soup.find("div", class_="entry-content")
     if not content_div:
-        return {"title": title, "text": "", "paragraphs": []}
+        return {"title": title, "text": ""}
 
     # Remove the "Suitable Recitals" section and everything after
     for h2 in content_div.find_all("h2"):
@@ -101,39 +147,29 @@ def extract_article_text(html: str) -> dict:
 
     # Get clean text
     text = content_div.get_text(separator="\n", strip=True)
+    
+    # Remove navigation artifacts
+    text = clean_navigation_artifacts(text)
 
-    # Try to extract numbered paragraphs
-    paragraphs = []
-    # Pattern: "1." or "1.Text" at start of line
+    # Clean up standalone paragraph numbers (e.g., "1\n", "2\n") 
+    # These appear on their own line in the source and add noise
     lines = text.split("\n")
-    current_para = []
-    current_num = None
-
+    clean_lines = []
     for line in lines:
         line = line.strip()
         if not line:
             continue
-        # Check if line starts with a paragraph number like "1." or "1.Text"
-        m = re.match(r'^(\d+)\.\s*(.*)', line)
-        if m and int(m.group(1)) == (current_num or 0) + 1:
-            # Save previous paragraph
-            if current_num is not None:
-                paragraphs.append({
-                    "number": current_num,
-                    "text": " ".join(current_para).strip()
-                })
-            current_num = int(m.group(1))
-            current_para = [m.group(2)] if m.group(2) else []
-        else:
-            current_para.append(line)
+        # Skip standalone single/double digit numbers (paragraph markers)
+        if re.match(r'^\d{1,2}$', line):
+            continue
+        clean_lines.append(line)
+    
+    # Join into clean prose
+    clean_text = " ".join(clean_lines)
+    # Clean up excessive whitespace
+    clean_text = re.sub(r'\s+', ' ', clean_text).strip()
 
-    if current_num is not None:
-        paragraphs.append({
-            "number": current_num,
-            "text": " ".join(current_para).strip()
-        })
-
-    return {"title": title, "text": text, "paragraphs": paragraphs}
+    return {"title": title, "text": clean_text}
 
 
 def extract_recital_text(html: str) -> dict:
@@ -159,8 +195,29 @@ def extract_recital_text(html: str) -> dict:
     text = content_div.get_text(separator=" ", strip=True)
     # Clean up excessive whitespace
     text = re.sub(r'\s+', ' ', text).strip()
+    
+    # Remove navigation artifacts from recitals
+    # Pattern: "← Recital N Recital M → All recitals" or "* This title is an unofficial description. ← Recital N..."
+    # Define arrow characters separately to avoid issues with raw strings
+    LEFT_ARROW = '\u2190'  # ←
+    RIGHT_ARROW = '\u2192'  # →
+    
+    text = re.sub(r'\*\s*This title is an unofficial description\.\s*', '', text)
+    
+    # Remove common trailing artifacts first (before recital-specific patterns)
+    text = re.sub(r'\s*GDPR\s*Table of contents\s*Report error\s*$', '', text)
+    text = re.sub(r'\s*Table of contents\s*Report error\s*$', '', text)
+    text = re.sub(r'\s*Report error\s*$', '', text)
+    
+    # Now remove recital navigation (these need $ to anchor to end after Report error removed)
+    text = re.sub(r'\s*' + LEFT_ARROW + r'\s*Recital\s*\d+\s+Recital\s*\d+\s*' + RIGHT_ARROW + r'\s*All recitals\s*$', '', text, flags=re.IGNORECASE)
+    # Edge case: First recital has "Recital N → All recitals" without leading "←"
+    text = re.sub(r'\s*Recital\s*\d+\s*' + RIGHT_ARROW + r'\s*All recitals\s*$', '', text, flags=re.IGNORECASE)
+    # Fallback patterns for edge cases
+    text = re.sub(r'\s*' + LEFT_ARROW + r'\s*Recital\s*\d+.*$', '', text, flags=re.IGNORECASE)
+    text = re.sub(r'\s*All recitals\s*$', '', text, flags=re.IGNORECASE)
 
-    return {"title": title, "text": text}
+    return {"title": title, "text": text.strip()}
 
 
 def build_articles() -> dict:
@@ -183,7 +240,6 @@ def build_articles() -> dict:
                     "number": art_num,
                     "title": art_data["title"],
                     "text": art_data["text"],
-                    "paragraphs": art_data["paragraphs"],
                 }
                 chapter_articles.append(article)
                 all_articles[str(art_num)] = article
@@ -194,7 +250,6 @@ def build_articles() -> dict:
                     "number": art_num,
                     "title": f"Article {art_num}",
                     "text": "",
-                    "paragraphs": [],
                 })
 
             time.sleep(0.5)  # Be polite
