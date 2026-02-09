@@ -13,7 +13,7 @@ A Model Context Protocol (MCP) server that brings **GDPR compliance knowledge di
 
 ## Features
 
-### 🔍 GDPR Knowledge Base (24 Tools)
+### 🔍 GDPR Knowledge Base (23 Tools)
 - **Article Lookup** — Retrieve any GDPR article by number, search across all 99 articles and 173 recitals
 - **Definitions** — Art. 4 term definitions with contextual explanations
 - **Chapter Navigation** — Browse articles by chapter with full directory
@@ -34,7 +34,7 @@ A Model Context Protocol (MCP) server that brings **GDPR compliance knowledge di
 - Gap Analysis, DPIA Assessment, Compliance Roadmap, Data Mapping
 - Incident Response, Azure Privacy Review, Vendor Assessment, Cross-Border Transfers
 
-### 📐 Azure Bicep Templates (11 Templates)
+### 📐 Azure Bicep Templates (19 Templates)
 - **Storage Account** — CMK encryption, Private Endpoint, lifecycle policies (Art. 5, 25, 32, 44-49)
 - **Key Vault** — HSM-backed Premium, purge protection, RBAC (Art. 25, 32)
 - **Azure SQL** — Entra-only auth, TDE, auditing (Art. 25, 32)
@@ -58,7 +58,7 @@ A Model Context Protocol (MCP) server that brings **GDPR compliance knowledge di
 ## Quick Start
 
 ### Prerequisites
-- Python 3.11+
+- Python 3.10+
 - VS Code with GitHub Copilot
 
 ### Installation
@@ -82,7 +82,7 @@ To configure manually, add to your VS Code settings:
 {
   "mcp": {
     "servers": {
-      "gdpr-shift-left": {
+      "gdpr-shift-left-mcp": {
         "type": "stdio",
         "command": "python",
         "args": ["-m", "gdpr_shift_left_mcp"]
@@ -106,14 +106,14 @@ gdpr-shift-left-mcp
 
 | Tool | Description | GDPR Articles |
 |------|-------------|---------------|
-| `get_gdpr_article` | Retrieve a GDPR article by number | All |
+| `get_article` | Retrieve a GDPR article by number | All |
 | `list_chapter_articles` | List all articles in a chapter | All |
 | `search_gdpr` | Full-text search across GDPR | All |
-| `get_gdpr_recital` | Retrieve a recital by number | All |
+| `get_recital` | Retrieve a recital by number | All |
 | `get_azure_mapping` | Azure services for a GDPR article | All |
-| `get_gdpr_definition` | Art. 4 term definition | Art. 4 |
-| `list_gdpr_definitions` | List all definitions | Art. 4 |
-| `search_gdpr_definitions` | Search definitions | Art. 4 |
+| `get_definition` | Art. 4 term definition | Art. 4 |
+| `list_definitions` | List all definitions | Art. 4 |
+| `search_definitions` | Search definitions | Art. 4 |
 | `assess_dpia_need` | Check if DPIA is required | Art. 35 |
 | `generate_dpia_template` | Generate DPIA document | Art. 35 |
 | `get_dpia_guidance` | DPIA area guidance | Art. 35–36 |
@@ -140,7 +140,7 @@ src/gdpr_shift_left_mcp/
 ├── disclaimer.py            # Legal disclaimer utility
 ├── data_loader.py           # Online GDPR data fetching + caching
 ├── tools/
-│   ├── __init__.py          # Tool registration (24 tools)
+│   ├── __init__.py          # Tool registration (23 tools)
 │   ├── articles.py          # Article/recital/search tools
 │   ├── definitions.py       # Art. 4 definition tools
 │   ├── dpia.py              # DPIA assessment tools
