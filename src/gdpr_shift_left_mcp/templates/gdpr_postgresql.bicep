@@ -97,14 +97,10 @@ resource postgresServer 'Microsoft.DBforPostgreSQL/flexibleServers@2024-08-01' =
       mode: 'ZoneRedundant'
     }
 
-    // Art. 5(1)(f) — SSL enforcement
+    // Art. 5(1)(f) — Entra ID authentication
     authConfig: {
-      activeDirectoryAuth: {
-        enabled: true // Entra ID authentication
-      }
-      passwordAuth: {
-        enabled: true // Disable after Entra ID is fully configured
-      }
+      activeDirectoryAuth: 'Enabled' // Entra ID authentication
+      passwordAuth: 'Enabled' // Disable after Entra ID is fully configured
     }
   }
   tags: {

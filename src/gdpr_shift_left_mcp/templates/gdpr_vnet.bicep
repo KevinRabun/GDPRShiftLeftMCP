@@ -13,9 +13,6 @@ param vnetAddressPrefix string = '10.0.0.0/16'
 @description('Resource ID of the Log Analytics workspace for NSG flow logs')
 param logAnalyticsWorkspaceId string = ''
 
-@description('Storage account ID for NSG flow log retention')
-param flowLogStorageAccountId string = ''
-
 @description('GDPR processing purpose tag')
 param gdprProcessingPurpose string = 'network-isolation'
 

@@ -26,9 +26,6 @@ param smsCountryCode string = '44'
 @description('Resource ID of the Log Analytics workspace to monitor')
 param logAnalyticsWorkspaceId string
 
-@description('Resource ID of the Application Insights instance')
-param appInsightsId string = ''
-
 @description('GDPR processing purpose tag')
 param gdprProcessingPurpose string = 'breach-notification'
 
