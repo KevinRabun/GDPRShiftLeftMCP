@@ -4,6 +4,16 @@ on:
   push:
     tags:
       - 'v*.*.*'
+  workflow_dispatch:
+    inputs:
+      publish_target:
+        description: 'What to publish'
+        required: true
+        default: 'mcp-only'
+        type: choice
+        options:
+          - 'mcp-only'
+          - 'all'
 
 permissions:
   contents: write
@@ -11,6 +21,7 @@ permissions:
 
 jobs:
   test:
+    if: github.event_name == 'push' || github.event.inputs.publish_target == 'all'
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -37,6 +48,7 @@ jobs:
         run: python -m tests.evaluator.run_judges
 
   publish-pypi:
+    if: github.event_name == 'push' || github.event.inputs.publish_target == 'all'
     needs: test
     runs-on: ubuntu-latest
 
@@ -71,6 +83,7 @@ jobs:
           path: dist/
 
   github-release:
+    if: github.event_name == 'push' || github.event.inputs.publish_target == 'all'
     needs: publish-pypi
     runs-on: ubuntu-latest
 
@@ -85,13 +98,15 @@ jobs:
           prerelease: false
 
   publish-mcp-registry:
-    needs: publish-pypi
+    if: always() && (github.event_name == 'push' || github.event.inputs.publish_target != '')
+    needs: [publish-pypi]
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
 
       - name: Wait for PyPI to propagate
+        if: github.event_name == 'push' || github.event.inputs.publish_target == 'all'
         run: sleep 60
 
       - name: Download mcp-publisher
