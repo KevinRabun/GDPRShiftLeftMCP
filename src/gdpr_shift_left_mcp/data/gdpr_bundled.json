@@ -1567,5 +1567,169 @@
       "definition": "an organisation and its subordinate bodies governed by public international law, or any other body which is set up by, or on the basis of, an agreement between two or more countries",
       "article_reference": "Article 4(26)"
     }
-  ]
+  ],
+  "role_classification": {
+    "description": "Guidance for determining whether an entity acts as controller, processor, or joint controller under GDPR",
+    "key_articles": ["4(7)", "4(8)", "26", "28", "29"],
+    "edpb_guidelines": "Guidelines 07/2020 on the concepts of controller and processor in the GDPR",
+    "controller": {
+      "definition_article": "Article 4(7)",
+      "definition": "The natural or legal person, public authority, agency or other body which, alone or jointly with others, determines the purposes and means of the processing of personal data",
+      "key_criteria": [
+        "Determines WHY personal data is processed (purposes)",
+        "Determines HOW personal data is processed (means)",
+        "Has direct relationship with data subjects",
+        "Decides what personal data to collect",
+        "Decides how long to retain personal data",
+        "Decides who receives personal data"
+      ],
+      "core_obligations": [
+        {"article": "5(2)", "title": "Accountability", "summary": "Demonstrate compliance with GDPR principles"},
+        {"article": "6", "title": "Lawful basis", "summary": "Establish legal basis for each processing activity"},
+        {"article": "12-14", "title": "Transparency", "summary": "Provide privacy information to data subjects"},
+        {"article": "15-22", "title": "Data subject rights", "summary": "Facilitate access, rectification, erasure, etc."},
+        {"article": "24", "title": "Responsibility", "summary": "Implement appropriate technical and organizational measures"},
+        {"article": "25", "title": "Privacy by design", "summary": "Embed data protection into processing from the start"},
+        {"article": "28", "title": "Processor oversight", "summary": "Use only processors with sufficient guarantees"},
+        {"article": "30(1)", "title": "ROPA", "summary": "Maintain records of processing activities"},
+        {"article": "32", "title": "Security", "summary": "Implement appropriate security measures"},
+        {"article": "33-34", "title": "Breach notification", "summary": "Notify authority within 72 hours; notify subjects if high risk"},
+        {"article": "35", "title": "DPIA", "summary": "Conduct DPIAs for high-risk processing"}
+      ]
+    },
+    "processor": {
+      "definition_article": "Article 4(8)",
+      "definition": "A natural or legal person, public authority, agency or other body which processes personal data on behalf of the controller",
+      "key_criteria": [
+        "Processes data ON BEHALF OF another entity (the controller)",
+        "Acts on documented instructions from controller",
+        "Cannot use data for own purposes without authorization",
+        "No independent decision-making on processing purposes",
+        "Returns or deletes data when contract ends"
+      ],
+      "core_obligations": [
+        {"article": "28(3)(a)", "title": "Instructions", "summary": "Process only on documented controller instructions"},
+        {"article": "28(3)(b)", "title": "Confidentiality", "summary": "Ensure personnel are under confidentiality obligations"},
+        {"article": "28(3)(c)", "title": "Security", "summary": "Implement appropriate security measures per Art. 32"},
+        {"article": "28(3)(d)", "title": "Sub-processors", "summary": "Engage sub-processors only with controller authorization"},
+        {"article": "28(3)(e)", "title": "DSR assistance", "summary": "Assist controller with data subject requests"},
+        {"article": "28(3)(f)", "title": "Compliance support", "summary": "Assist with security, breach notification, DPIAs"},
+        {"article": "28(3)(g)", "title": "Data return/deletion", "summary": "Delete or return data at end of services"},
+        {"article": "28(3)(h)", "title": "Audit support", "summary": "Allow audits and demonstrate compliance"},
+        {"article": "30(2)", "title": "ROPA", "summary": "Maintain processing records for each controller"},
+        {"article": "33(2)", "title": "Breach notification", "summary": "Notify controller without undue delay of breaches"}
+      ]
+    },
+    "joint_controller": {
+      "definition_article": "Article 26",
+      "definition": "Where two or more controllers jointly determine the purposes and means of processing",
+      "key_criteria": [
+        "Multiple parties jointly determine purposes",
+        "Multiple parties jointly determine means",
+        "Shared platform or service with common data processing",
+        "Cannot be separated into distinct controller relationships"
+      ],
+      "requirements": [
+        "Transparent arrangement determining respective responsibilities",
+        "Arrangement must cover obligations under GDPR, especially data subject rights",
+        "Essence of arrangement must be made available to data subjects",
+        "May designate single contact point for data subjects",
+        "Data subject can exercise rights against any joint controller"
+      ]
+    },
+    "decision_factors": [
+      {
+        "question": "Who decides WHY personal data is processed?",
+        "controller_answer": "You decide the purpose",
+        "processor_answer": "Client/customer decides"
+      },
+      {
+        "question": "Who decides WHAT data to collect?",
+        "controller_answer": "You determine data categories",
+        "processor_answer": "Client specifies data"
+      },
+      {
+        "question": "Who has direct relationship with data subjects?",
+        "controller_answer": "You interact with individuals",
+        "processor_answer": "Client interacts with individuals"
+      },
+      {
+        "question": "Do you act on documented instructions?",
+        "controller_answer": "No, independent decisions",
+        "processor_answer": "Yes, per client instructions"
+      },
+      {
+        "question": "Can you use data for own purposes?",
+        "controller_answer": "Yes, for your business",
+        "processor_answer": "No, only for client purposes"
+      },
+      {
+        "question": "Who determines retention periods?",
+        "controller_answer": "You decide retention",
+        "processor_answer": "Client/contract determines"
+      }
+    ],
+    "common_scenarios": [
+      {
+        "scenario": "SaaS platform storing customer data",
+        "typical_role": "processor",
+        "explanation": "Software-as-a-service where clients upload/manage their own data",
+        "exception": "Controller if using client data for own analytics or marketing"
+      },
+      {
+        "scenario": "Cloud infrastructure (IaaS/PaaS)",
+        "typical_role": "processor",
+        "explanation": "Infrastructure providers process data on behalf of customers",
+        "exception": "Controller for operational data like logs and support tickets"
+      },
+      {
+        "scenario": "API service processing requests",
+        "typical_role": "processor",
+        "explanation": "API that processes data sent by clients",
+        "exception": "Controller if aggregating data across clients for own purposes"
+      },
+      {
+        "scenario": "E-commerce (direct sales)",
+        "typical_role": "controller",
+        "explanation": "Direct relationship with customers, determines processing purposes",
+        "exception": "N/A"
+      },
+      {
+        "scenario": "HR/payroll software",
+        "typical_role": "processor",
+        "explanation": "Processes employee data on behalf of employer clients",
+        "exception": "Controller for own employee data"
+      },
+      {
+        "scenario": "Marketing automation platform",
+        "typical_role": "processor",
+        "explanation": "Clients use platform to manage their marketing campaigns",
+        "exception": "Joint controller if also using contact data for own targeting"
+      },
+      {
+        "scenario": "Social media platform",
+        "typical_role": "controller",
+        "explanation": "Determines purposes of processing user data",
+        "exception": "May be joint controller with advertisers for ad targeting"
+      },
+      {
+        "scenario": "Payment processor",
+        "typical_role": "mixed",
+        "explanation": "Processor for transaction processing on behalf of merchants",
+        "exception": "Controller for fraud prevention and regulatory compliance"
+      },
+      {
+        "scenario": "Embedded SDK/widget",
+        "typical_role": "processor",
+        "explanation": "Processing data from client's app users",
+        "exception": "Joint controller if collecting telemetry for own purposes"
+      },
+      {
+        "scenario": "Data analytics service",
+        "typical_role": "depends",
+        "explanation": "Role depends on who determines what insights to derive",
+        "exception": "Controller if independently determining analysis purposes"
+      }
+    ]
+  }
 }

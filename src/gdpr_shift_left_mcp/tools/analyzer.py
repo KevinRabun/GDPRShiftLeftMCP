@@ -333,7 +333,55 @@ async def analyze_application_code_impl(
             result += f"**GDPR Reference:** {f['article']}\n\n"
             result += f"{f['message']}\n\n"
 
+    # Add role indicator hints
+    role_hints = _detect_role_hints(code)
+    if role_hints:
+        result += "---\n\n## Role Indicators Detected\n\n"
+        result += "*These patterns may indicate whether your service acts as a controller or processor.*\n\n"
+        if role_hints.get("controller"):
+            result += "**Controller patterns:**\n"
+            for hint in role_hints["controller"][:3]:
+                result += f"- {hint}\n"
+            result += "\n"
+        if role_hints.get("processor"):
+            result += "**Processor patterns:**\n"
+            for hint in role_hints["processor"][:3]:
+                result += f"- {hint}\n"
+            result += "\n"
+        result += "*Use `assess_controller_processor_role` or `analyze_code_for_role_indicators` for detailed role analysis.*\n\n"
+
     return append_disclaimer(result)
+
+
+def _detect_role_hints(code: str) -> Dict[str, List[str]]:
+    """Detect patterns that hint at controller vs processor role."""
+    hints = {"controller": [], "processor": []}
+    code_lower = code.lower()
+
+    # Controller patterns
+    if re.search(r"(signup|register|create.?account)", code_lower):
+        hints["controller"].append("User registration/signup code detected")
+    if re.search(r"(consent|gdpr.?consent|cookie.?consent|opt.?in)", code_lower):
+        hints["controller"].append("Consent collection mechanisms detected")
+    if re.search(r"(analytics|tracking|telemetry)", code_lower):
+        hints["controller"].append("Analytics/tracking code detected (may indicate own-purpose processing)")
+    if re.search(r"(privacy.?policy|terms.?of.?service)", code_lower):
+        hints["controller"].append("Privacy policy / ToS references detected")
+    if re.search(r"(marketing|newsletter|promotional)", code_lower):
+        hints["controller"].append("Marketing/newsletter functionality detected")
+
+    # Processor patterns
+    if re.search(r"(tenant.?id|organization.?id|client.?id)", code_lower):
+        hints["processor"].append("Multi-tenant architecture (client isolation) detected")
+    if re.search(r"(webhook|callback|event.?handler)", code_lower):
+        hints["processor"].append("Webhook/callback receivers detected (client data ingestion)")
+    if re.search(r"(api.?key|client.?secret|bearer.?token)", code_lower):
+        hints["processor"].append("Client authentication mechanisms detected")
+    if re.search(r"(on.?behalf.?of|for.?client|customer.?data)", code_lower):
+        hints["processor"].append("'On behalf of' / client data references detected")
+
+    # Filter out empty categories
+    return {k: v for k, v in hints.items() if v}
 
 
 async def validate_gdpr_config_impl(
