@@ -23,7 +23,7 @@ def register_tools(mcp: "FastMCP", data_loader: "GDPRDataLoader"):
         mcp: The FastMCP server instance
         data_loader: The data loader instance for accessing GDPR data
     """
-    from . import articles, definitions, dpia, ropa, dsr, analyzer, retention
+    from . import articles, definitions, dpia, ropa, dsr, analyzer, retention, role_classifier
     from ..disclaimer import append_disclaimer
 
     # ── GDPR Article / Regulation Q&A ───────────────────────────────────
@@ -276,4 +276,85 @@ def register_tools(mcp: "FastMCP", data_loader: "GDPRDataLoader"):
         """
         return await retention.check_deletion_requirements_impl(system_context, data_loader)
 
-    logger.info("Registered 23 GDPR tools across 7 modules")
+    # ── Controller/Processor Role Classification (Art. 4(7), 4(8), 26, 28) ───
+
+    @mcp.tool()
+    async def assess_controller_processor_role(service_description: str) -> str:
+        """
+        Assess whether a service/system acts as data controller, processor,
+        joint controller, or has a mixed role under GDPR.
+
+        Analyzes the service description against GDPR definitions and EDPB
+        guidance to determine the likely role and associated obligations.
+
+        Args:
+            service_description: Description of the service, data flows,
+                business relationships, and processing activities
+        """
+        return await role_classifier.assess_controller_processor_role_impl(
+            service_description, data_loader
+        )
+
+    @mcp.tool()
+    async def get_role_obligations(role: str, include_azure: bool = True) -> str:
+        """
+        Get GDPR obligations specific to a controller/processor role.
+
+        Returns detailed obligations from relevant GDPR articles with
+        optional Azure implementation guidance.
+
+        Args:
+            role: 'controller', 'processor', 'joint_controller', or 'sub_processor'
+            include_azure: Include Azure-specific implementation guidance
+        """
+        return await role_classifier.get_role_obligations_impl(
+            role, include_azure, data_loader
+        )
+
+    @mcp.tool()
+    async def analyze_code_for_role_indicators(
+        code: str,
+        language: str,
+    ) -> str:
+        """
+        Analyze source code for patterns indicating controller vs processor role.
+
+        Detects patterns like: direct user data collection, consent mechanisms,
+        multi-tenant isolation, webhook receivers, data forwarding, etc.
+
+        Args:
+            code: The source code to analyze
+            language: Programming language ('python', 'typescript', 'csharp', etc.)
+        """
+        return await role_classifier.analyze_code_for_role_indicators_impl(
+            code, language, data_loader
+        )
+
+    @mcp.tool()
+    async def generate_dpa_checklist(context: str) -> str:
+        """
+        Generate an Article 28 Data Processing Agreement (DPA) checklist.
+
+        Provides a comprehensive checklist of mandatory and recommended
+        DPA clauses with Azure-specific considerations.
+
+        Args:
+            context: Description of the processing relationship and context
+        """
+        return await role_classifier.generate_dpa_checklist_impl(context, data_loader)
+
+    @mcp.tool()
+    async def get_role_scenarios(scenario_type: str = "all") -> str:
+        """
+        Get common controller/processor scenarios and role determinations.
+
+        Returns typical scenarios (SaaS, API services, cloud infrastructure, etc.)
+        with guidance on typical role classification and exceptions.
+
+        Args:
+            scenario_type: Filter scenarios by type (e.g., 'saas', 'api', 'cloud')
+                          or 'all' for all scenarios
+        """
+        return await role_classifier.get_role_scenarios_impl(scenario_type, data_loader)
+
+    logger.info("Registered 28 GDPR tools across 8 modules")
