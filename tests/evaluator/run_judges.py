@@ -11,6 +11,7 @@ from .judge import judge
 from . import checks  # noqa: F401 — registers all judges
 from . import checks_comprehensive  # noqa: F401 — registers comprehensive judges
 from . import checks_adversarial  # noqa: F401 — registers adversarial judges
+from . import checks_readme  # noqa: F401 — registers README validation judges
 
 
 async def main() -> int:

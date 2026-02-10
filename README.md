@@ -13,7 +13,7 @@ A Model Context Protocol (MCP) server that brings **GDPR compliance knowledge di
 
 ## Features
 
-### 🔍 GDPR Knowledge Base (23 Tools)
+### 🔍 GDPR Knowledge Base (28 Tools)
 - **Article Lookup** — Retrieve any GDPR article by number, search across all 99 articles and 173 recitals
 - **Definitions** — Art. 4 term definitions with contextual explanations
 - **Chapter Navigation** — Browse articles by chapter with full directory
@@ -24,6 +24,7 @@ A Model Context Protocol (MCP) server that brings **GDPR compliance knowledge di
 - **ROPA Builder** — Generate and validate Art. 30 Records of Processing Activities
 - **DSR Guidance** — Step-by-step workflows for all 7 data subject rights (Arts. 12–23)
 - **Retention Analysis** — Assess retention policies against Art. 5(1)(e) storage limitation
+- **Controller/Processor Role Classification** — Assess data roles, get obligations, analyze code patterns, generate DPA checklists
 
 ### 🏗️ Infrastructure & Code Review
 - **Bicep/Terraform/ARM Analyzer** — Scan IaC for GDPR violations (encryption, access, network, residency, logging, retention)
@@ -129,6 +130,11 @@ gdpr-shift-left-mcp
 | `assess_retention_policy` | Assess retention policy | Art. 5(1)(e) |
 | `get_retention_guidance` | Category-specific retention | Art. 5(1)(e) |
 | `check_deletion_requirements` | Deletion capability checklist | Art. 17 |
+| `assess_controller_processor_role` | Assess data controller/processor role | Art. 4, 24, 26, 28 |
+| `get_role_obligations` | Role-specific GDPR obligations | Art. 24, 26, 28 |
+| `analyze_code_for_role_indicators` | Detect controller/processor code patterns | Art. 4, 24, 28 |
+| `generate_dpa_checklist` | Art. 28 DPA agreement checklist | Art. 28 |
+| `get_role_scenarios` | Common role classification scenarios | Art. 4, 24, 26, 28 |
 
 ## Architecture
 
@@ -140,14 +146,15 @@ src/gdpr_shift_left_mcp/
 ├── disclaimer.py            # Legal disclaimer utility
 ├── data_loader.py           # Online GDPR data fetching + caching
 ├── tools/
-│   ├── __init__.py          # Tool registration (23 tools)
+│   ├── __init__.py          # Tool registration (28 tools)
 │   ├── articles.py          # Article/recital/search tools
 │   ├── definitions.py       # Art. 4 definition tools
 │   ├── dpia.py              # DPIA assessment tools
 │   ├── ropa.py              # ROPA builder tools
 │   ├── dsr.py               # Data subject rights tools
 │   ├── analyzer.py          # IaC + app code analyzer
-│   └── retention.py         # Retention/deletion tools
+│   ├── retention.py         # Retention/deletion tools
+│   └── role_classifier.py   # Controller/processor role classification
 ├── prompts/
 │   ├── __init__.py          # Prompt loader
 │   └── *.txt                # 8 expert prompt templates
