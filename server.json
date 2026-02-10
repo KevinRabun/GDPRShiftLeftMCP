@@ -7,12 +7,12 @@
     "url": "https://github.com/KevinRabun/GDPRShiftLeftMCP",
     "source": "github"
   },
-  "version": "0.2.0",
+  "version": "0.3.0",
   "packages": [
     {
       "registryType": "pypi",
       "identifier": "gdpr-shift-left-mcp",
-      "version": "0.2.0",
+      "version": "0.3.0",
       "runtimeHint": "uvx",
       "transport": {
         "type": "stdio"
