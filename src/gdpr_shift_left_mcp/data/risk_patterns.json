@@ -1,0 +1,3819 @@
+{
+  "_description": "Consolidated risk patterns for AST analysis across all supported languages",
+  "_version": "1.0.0",
+  "pii_indicators": {
+    "direct_identifiers": [
+      "name",
+      "full_name",
+      "first_name",
+      "last_name",
+      "given_name",
+      "surname",
+      "family_name",
+      "email",
+      "email_address",
+      "mail",
+      "e_mail",
+      "user_email",
+      "customer_email",
+      "phone",
+      "phone_number",
+      "telephone",
+      "mobile",
+      "cell",
+      "contact_number",
+      "fax",
+      "address",
+      "street",
+      "city",
+      "postal_code",
+      "zip",
+      "zipcode",
+      "zip_code",
+      "postcode",
+      "country",
+      "state",
+      "region",
+      "province",
+      "county",
+      "ssn",
+      "social_security",
+      "national_id",
+      "tax_id",
+      "tin",
+      "ein",
+      "passport",
+      "passport_number",
+      "passport_no",
+      "driver_license",
+      "drivers_license",
+      "driving_license",
+      "license_number",
+      "identity_card",
+      "id_card",
+      "national_identity",
+      "citizen_id",
+      "birth_date",
+      "date_of_birth",
+      "dob",
+      "birthday",
+      "birthdate",
+      "age",
+      "gender",
+      "sex",
+      "marital_status",
+      "nationality",
+      "ethnicity",
+      "race",
+      "bsn",
+      "burgerservicenummer",
+      "personnummer",
+      "cpr",
+      "nino",
+      "pps",
+      "pesel",
+      "dni",
+      "nie",
+      "cpf",
+      "rg",
+      "cedula",
+      "curp",
+      "rfc",
+      "aadhaar",
+      "pan_card",
+      "voter_id",
+      "medicare",
+      "medicaid",
+      "nhs_number",
+      "health_insurance_number",
+      "codice_fiscale",
+      "ahv",
+      "nic",
+      "nif",
+      "amka",
+      "oib",
+      "rodne_cislo",
+      "kennitala",
+      "signature",
+      "digital_signature",
+      "e_signature",
+      "esignature"
+    ],
+    "indirect_identifiers": [
+      "user_id",
+      "userid",
+      "customer_id",
+      "customerid",
+      "account_id",
+      "accountid",
+      "member_id",
+      "memberid",
+      "subscriber_id",
+      "subscriberid",
+      "patient_id",
+      "patientid",
+      "employee_id",
+      "employeeid",
+      "student_id",
+      "studentid",
+      "client_id",
+      "clientid",
+      "ip_address",
+      "ip",
+      "ipv4",
+      "ipv6",
+      "mac_address",
+      "device_id",
+      "deviceid",
+      "imei",
+      "imsi",
+      "serial_number",
+      "hardware_id",
+      "uuid",
+      "guid",
+      "idfa",
+      "gaid",
+      "aaid",
+      "advertising_id",
+      "ad_id",
+      "device_token",
+      "push_token",
+      "idfv",
+      "android_id",
+      "oaid",
+      "fire_adid",
+      "cookie",
+      "session_id",
+      "sessionid",
+      "tracking_id",
+      "trackingid",
+      "browser_fingerprint",
+      "fingerprint",
+      "device_fingerprint",
+      "canvas_fingerprint",
+      "username",
+      "user_name",
+      "login",
+      "login_name",
+      "screen_name",
+      "handle",
+      "nickname",
+      "profile",
+      "avatar",
+      "photo",
+      "picture",
+      "image",
+      "occupation",
+      "job_title",
+      "employer",
+      "company",
+      "organization",
+      "workplace",
+      "education",
+      "school",
+      "university",
+      "degree",
+      "qualification",
+      "social_media",
+      "linkedin",
+      "facebook",
+      "twitter",
+      "instagram",
+      "vehicle_registration",
+      "license_plate",
+      "vin"
+    ],
+    "sensitive_data": [
+      "password",
+      "passwd",
+      "pwd",
+      "secret",
+      "credential",
+      "credentials",
+      "token",
+      "access_token",
+      "refresh_token",
+      "api_key",
+      "apikey",
+      "auth_token",
+      "private_key",
+      "secret_key",
+      "encryption_key",
+      "signing_key",
+      "credit_card",
+      "creditcard",
+      "card_number",
+      "cardnumber",
+      "cvv",
+      "cvc",
+      "expiry",
+      "bank_account",
+      "bankaccount",
+      "iban",
+      "swift",
+      "bic",
+      "routing_number",
+      "sort_code",
+      "trading_account",
+      "portfolio",
+      "holdings",
+      "beneficiary",
+      "investment",
+      "salary",
+      "wage",
+      "income",
+      "compensation",
+      "bonus",
+      "commission",
+      "payroll",
+      "medical",
+      "health",
+      "diagnosis",
+      "treatment",
+      "prescription",
+      "medication",
+      "allergy",
+      "diagnosis_code",
+      "icd10",
+      "icd_code",
+      "cpt_code",
+      "ndc",
+      "drg",
+      "snomed",
+      "condition",
+      "disease",
+      "illness",
+      "symptom",
+      "blood_type",
+      "blood_group",
+      "disability",
+      "mental_health",
+      "psychiatric",
+      "therapy",
+      "counseling",
+      "genetic",
+      "dna",
+      "genome",
+      "biometric",
+      "fingerprint_data",
+      "retina",
+      "iris",
+      "facial_recognition",
+      "voice_print",
+      "gait",
+      "keystroke",
+      "religion",
+      "religious",
+      "faith",
+      "belief",
+      "political",
+      "political_opinion",
+      "union",
+      "union_membership",
+      "trade_union",
+      "sexual_orientation",
+      "sex_life",
+      "sexual_preference",
+      "criminal",
+      "criminal_record",
+      "conviction",
+      "arrest",
+      "offense",
+      "felony",
+      "misdemeanor",
+      "court_record",
+      "legal_proceeding",
+      "lawsuit",
+      "litigation",
+      "background_check",
+      "credit_score",
+      "credit_report",
+      "clearance_level"
+    ],
+    "tracking": [
+      "analytics",
+      "tracking",
+      "telemetry",
+      "metrics",
+      "statistics",
+      "location",
+      "geolocation",
+      "gps",
+      "coordinates",
+      "latitude",
+      "longitude",
+      "geo",
+      "visit",
+      "pageview",
+      "page_view",
+      "click",
+      "event",
+      "action",
+      "behavior",
+      "referrer",
+      "referer",
+      "source",
+      "campaign",
+      "utm",
+      "attribution",
+      "conversion",
+      "funnel",
+      "journey",
+      "path",
+      "flow",
+      "preference",
+      "preferences",
+      "settings",
+      "config",
+      "configuration",
+      "history",
+      "browse_history",
+      "search_history",
+      "purchase_history",
+      "order_history",
+      "wishlist",
+      "cart",
+      "basket",
+      "favorites",
+      "bookmarks",
+      "recommendation",
+      "personalization",
+      "segment",
+      "cohort",
+      "audience",
+      "experiment",
+      "ab_test",
+      "variant",
+      "feature_flag",
+      "consent",
+      "opt_in",
+      "opt_out",
+      "gdpr_consent",
+      "cookie_consent",
+      "marketing_consent"
+    ],
+    "children": [
+      "child",
+      "children",
+      "minor",
+      "minors",
+      "kid",
+      "kids",
+      "youth",
+      "juvenile",
+      "child_name",
+      "child_age",
+      "child_dob",
+      "child_email",
+      "minor_name",
+      "minor_age",
+      "parent_consent",
+      "parental_consent",
+      "guardian_consent",
+      "coppa",
+      "verifiable_consent",
+      "school",
+      "school_name",
+      "grade",
+      "class",
+      "classroom",
+      "teacher",
+      "student",
+      "pupil",
+      "enrollment",
+      "attendance",
+      "guardian",
+      "parent",
+      "parent_name",
+      "mother",
+      "father",
+      "legal_guardian",
+      "pediatric",
+      "child_health",
+      "immunization",
+      "vaccination",
+      "ferpa",
+      "student_record",
+      "transcript",
+      "gpa",
+      "academic_record",
+      "disciplinary_record",
+      "special_education",
+      "iep",
+      "learning_disability",
+      "504_plan"
+    ],
+    "employee": [
+      "employee",
+      "staff",
+      "worker",
+      "personnel",
+      "team_member",
+      "employee_name",
+      "employee_email",
+      "employee_phone",
+      "employee_address",
+      "hire_date",
+      "start_date",
+      "termination_date",
+      "end_date",
+      "salary",
+      "wage",
+      "hourly_rate",
+      "annual_salary",
+      "pay_grade",
+      "compensation",
+      "bonus",
+      "commission",
+      "benefits",
+      "stock_options",
+      "equity",
+      "performance",
+      "performance_review",
+      "rating",
+      "evaluation",
+      "appraisal",
+      "disciplinary",
+      "warning",
+      "termination_reason",
+      "exit_interview",
+      "manager",
+      "supervisor",
+      "department",
+      "team",
+      "division",
+      "cost_center",
+      "title",
+      "job_title",
+      "position",
+      "role",
+      "level",
+      "seniority",
+      "work_schedule",
+      "shift",
+      "overtime",
+      "time_off",
+      "vacation",
+      "sick_leave",
+      "pto",
+      "background_check",
+      "reference",
+      "verification",
+      "clearance"
+    ]
+  },
+  "cross_border_providers": {
+    "openai": {
+      "name": "OpenAI",
+      "headquarters": "US",
+      "risk_level": "HIGH",
+      "category": "AI/ML",
+      "packages": {
+        "python": [
+          "openai"
+        ],
+        "javascript": [
+          "openai"
+        ],
+        "java": [
+          "com.theokanning.openai-gpt3-java",
+          "com.openai"
+        ],
+        "csharp": [
+          "OpenAI",
+          "Azure.AI.OpenAI",
+          "Betalgo.OpenAI"
+        ],
+        "go": [
+          "github.com/sashabaranov/go-openai",
+          "github.com/openai/openai-go"
+        ]
+      },
+      "risk_justification": "US-headquartered AI provider; processes prompts and data through US infrastructure; no EU adequacy decision; AI training data practices require scrutiny"
+    },
+    "anthropic": {
+      "name": "Anthropic",
+      "headquarters": "US",
+      "risk_level": "HIGH",
+      "category": "AI/ML",
+      "packages": {
+        "python": [
+          "anthropic"
+        ],
+        "javascript": [
+          "@anthropic-ai/sdk"
+        ],
+        "java": [
+          "com.anthropic"
+        ],
+        "csharp": [
+          "Anthropic.SDK",
+          "Claudia"
+        ],
+        "go": [
+          "github.com/anthropics/anthropic-sdk-go"
+        ]
+      },
+      "risk_justification": "US-headquartered AI provider; processes prompts and data through US infrastructure; no EU adequacy decision; AI training data practices require scrutiny"
+    },
+    "cohere": {
+      "name": "Cohere",
+      "headquarters": "US/Canada",
+      "risk_level": "HIGH",
+      "category": "AI/ML",
+      "packages": {
+        "python": [
+          "cohere"
+        ],
+        "javascript": [
+          "cohere-ai"
+        ],
+        "java": [
+          "com.cohere"
+        ],
+        "csharp": [
+          "Cohere"
+        ],
+        "go": [
+          "github.com/cohere-ai/cohere-go"
+        ]
+      },
+      "risk_justification": "US/Canada-headquartered AI provider; processes prompts and data through US infrastructure; no EU adequacy decision; AI training data practices require scrutiny"
+    },
+    "replicate": {
+      "name": "Replicate",
+      "headquarters": "US",
+      "risk_level": "HIGH",
+      "category": "AI/ML",
+      "packages": {
+        "python": [
+          "replicate"
+        ],
+        "javascript": [
+          "replicate"
+        ],
+        "java": [
+          "com.replicate"
+        ],
+        "csharp": [
+          "Replicate"
+        ],
+        "go": [
+          "github.com/replicate/replicate-go"
+        ]
+      },
+      "risk_justification": "US-headquartered AI provider; processes prompts and data through US infrastructure; no EU adequacy decision; AI training data practices require scrutiny"
+    },
+    "huggingface": {
+      "name": "HuggingFace",
+      "headquarters": "US",
+      "risk_level": "MEDIUM",
+      "category": "AI/ML",
+      "packages": {
+        "python": [
+          "transformers",
+          "huggingface_hub",
+          "datasets"
+        ],
+        "javascript": [
+          "@huggingface/inference",
+          "@huggingface/hub"
+        ],
+        "java": [
+          "ai.djl.huggingface"
+        ],
+        "csharp": [
+          "HuggingFace.NET"
+        ],
+        "go": [
+          "github.com/tmc/langchaingo"
+        ]
+      },
+      "risk_justification": "US-headquartered service; EU data processing options available; requires DPA and proper configuration for GDPR compliance"
+    },
+    "mistral": {
+      "name": "Mistral AI",
+      "headquarters": "France/EU",
+      "risk_level": "LOW",
+      "category": "AI/ML",
+      "packages": {
+        "python": [
+          "mistralai"
+        ],
+        "javascript": [
+          "@mistralai/mistralai"
+        ],
+        "java": [
+          "com.mistral"
+        ],
+        "csharp": [
+          "MistralAI"
+        ],
+        "go": []
+      },
+      "risk_justification": "EU/EEA-headquartered (France/EU); GDPR-native compliance; data processed within EU jurisdiction by default"
+    },
+    "perplexity": {
+      "name": "Perplexity AI",
+      "headquarters": "US",
+      "risk_level": "HIGH",
+      "category": "AI/ML",
+      "packages": {
+        "python": [
+          "openai"
+        ],
+        "javascript": [
+          "openai"
+        ],
+        "java": [],
+        "csharp": [],
+        "go": []
+      },
+      "risk_justification": "US-headquartered AI provider; processes prompts and data through US infrastructure; no EU adequacy decision; AI training data practices require scrutiny"
+    },
+    "groq": {
+      "name": "Groq",
+      "headquarters": "US",
+      "risk_level": "HIGH",
+      "category": "AI/ML",
+      "packages": {
+        "python": [
+          "groq"
+        ],
+        "javascript": [
+          "groq-sdk"
+        ],
+        "java": [],
+        "csharp": [],
+        "go": []
+      },
+      "risk_justification": "US-headquartered AI provider; processes prompts and data through US infrastructure; no EU adequacy decision; AI training data practices require scrutiny"
+    },
+    "together": {
+      "name": "Together AI",
+      "headquarters": "US",
+      "risk_level": "HIGH",
+      "category": "AI/ML",
+      "packages": {
+        "python": [
+          "together"
+        ],
+        "javascript": [
+          "together-ai"
+        ],
+        "java": [],
+        "csharp": [],
+        "go": []
+      },
+      "risk_justification": "US-headquartered AI provider; processes prompts and data through US infrastructure; no EU adequacy decision; AI training data practices require scrutiny"
+    },
+    "deepseek": {
+      "name": "DeepSeek",
+      "headquarters": "China",
+      "risk_level": "HIGH",
+      "category": "AI/ML",
+      "packages": {
+        "python": [
+          "openai"
+        ],
+        "javascript": [
+          "openai"
+        ],
+        "java": [],
+        "csharp": [],
+        "go": []
+      },
+      "risk_justification": "China-headquartered; subject to Chinese data localization and security laws; no EU adequacy decision; significant regulatory divergence from GDPR"
+    },
+    "ai21": {
+      "name": "AI21 Labs",
+      "headquarters": "Israel",
+      "risk_level": "MEDIUM",
+      "category": "AI/ML",
+      "packages": {
+        "python": [
+          "ai21"
+        ],
+        "javascript": [
+          "ai21"
+        ],
+        "java": [],
+        "csharp": [],
+        "go": []
+      },
+      "risk_justification": "Israel-headquartered AI provider; EU data processing options available; requires DPA and proper configuration for GDPR compliance"
+    },
+    "langchain": {
+      "name": "LangChain",
+      "headquarters": "US",
+      "risk_level": "MEDIUM",
+      "category": "AI/ML",
+      "packages": {
+        "python": [
+          "langchain",
+          "langchain-core",
+          "langchain-openai",
+          "langchain-anthropic"
+        ],
+        "javascript": [
+          "langchain",
+          "@langchain/core",
+          "@langchain/openai"
+        ],
+        "java": [
+          "dev.langchain4j"
+        ],
+        "csharp": [
+          "LangChain"
+        ],
+        "go": [
+          "github.com/tmc/langchaingo"
+        ]
+      },
+      "risk_justification": "US-headquartered service; EU data processing options available; requires DPA and proper configuration for GDPR compliance"
+    },
+    "llamaindex": {
+      "name": "LlamaIndex",
+      "headquarters": "US",
+      "risk_level": "MEDIUM",
+      "category": "AI/ML",
+      "packages": {
+        "python": [
+          "llama-index",
+          "llama-index-core"
+        ],
+        "javascript": [
+          "llamaindex"
+        ],
+        "java": [],
+        "csharp": [],
+        "go": []
+      },
+      "risk_justification": "US-headquartered service; EU data processing options available; requires DPA and proper configuration for GDPR compliance"
+    },
+    "stability": {
+      "name": "Stability AI",
+      "headquarters": "UK",
+      "risk_level": "MEDIUM",
+      "category": "AI/ML",
+      "packages": {
+        "python": [
+          "stability-sdk"
+        ],
+        "javascript": [
+          "@stability-ai/client-sdk"
+        ],
+        "java": [],
+        "csharp": [],
+        "go": []
+      },
+      "risk_justification": "UK-headquartered AI provider; UK adequacy decision in place post-Brexit; close alignment with GDPR; requires DPA for data processing"
+    },
+    "midjourney": {
+      "name": "Midjourney",
+      "headquarters": "US",
+      "risk_level": "HIGH",
+      "category": "AI/ML",
+      "packages": {
+        "python": [
+          "midjourney"
+        ],
+        "javascript": [
+          "midjourney"
+        ],
+        "java": [],
+        "csharp": [],
+        "go": []
+      },
+      "risk_justification": "US-headquartered AI provider; processes prompts and data through US infrastructure; no EU adequacy decision; AI training data practices require scrutiny"
+    },
+    "elevenlabs": {
+      "name": "ElevenLabs",
+      "headquarters": "US",
+      "risk_level": "HIGH",
+      "category": "AI/ML",
+      "packages": {
+        "python": [
+          "elevenlabs"
+        ],
+        "javascript": [
+          "elevenlabs"
+        ],
+        "java": [],
+        "csharp": [],
+        "go": []
+      },
+      "risk_justification": "US-headquartered AI provider; processes prompts and data through US infrastructure; no EU adequacy decision; AI training data practices require scrutiny"
+    },
+    "assemblyai": {
+      "name": "AssemblyAI",
+      "headquarters": "US",
+      "risk_level": "HIGH",
+      "category": "AI/ML",
+      "packages": {
+        "python": [
+          "assemblyai"
+        ],
+        "javascript": [
+          "assemblyai"
+        ],
+        "java": [],
+        "csharp": [
+          "AssemblyAI"
+        ],
+        "go": []
+      },
+      "risk_justification": "US-headquartered AI provider; processes prompts and data through US infrastructure; no EU adequacy decision; AI training data practices require scrutiny"
+    },
+    "deepgram": {
+      "name": "Deepgram",
+      "headquarters": "US",
+      "risk_level": "HIGH",
+      "category": "AI/ML",
+      "packages": {
+        "python": [
+          "deepgram-sdk"
+        ],
+        "javascript": [
+          "@deepgram/sdk"
+        ],
+        "java": [],
+        "csharp": [
+          "Deepgram"
+        ],
+        "go": [
+          "github.com/deepgram/deepgram-go-sdk"
+        ]
+      },
+      "risk_justification": "US-headquartered AI provider; processes prompts and data through US infrastructure; no EU adequacy decision; AI training data practices require scrutiny"
+    },
+    "google_vertex": {
+      "name": "Google Vertex AI",
+      "headquarters": "US",
+      "risk_level": "MEDIUM",
+      "category": "AI/ML",
+      "packages": {
+        "python": [
+          "google-cloud-aiplatform",
+          "vertexai"
+        ],
+        "javascript": [
+          "@google-cloud/aiplatform"
+        ],
+        "java": [
+          "com.google.cloud.aiplatform"
+        ],
+        "csharp": [
+          "Google.Cloud.AIPlatform.V1"
+        ],
+        "go": [
+          "cloud.google.com/go/aiplatform"
+        ]
+      },
+      "risk_justification": "US-headquartered service; EU data processing options available; requires DPA and proper configuration for GDPR compliance"
+    },
+    "aws": {
+      "name": "AWS",
+      "headquarters": "Variable",
+      "risk_level": "MEDIUM",
+      "category": "Cloud",
+      "packages": {
+        "python": [
+          "boto3",
+          "botocore",
+          "aiobotocore"
+        ],
+        "javascript": [
+          "aws-sdk",
+          "@aws-sdk/client-s3",
+          "@aws-sdk/client-dynamodb",
+          "@aws-sdk/client-lambda"
+        ],
+        "java": [
+          "software.amazon.awssdk",
+          "com.amazonaws"
+        ],
+        "csharp": [
+          "AWSSDK",
+          "Amazon.S3",
+          "Amazon.DynamoDBv2",
+          "Amazon.Lambda"
+        ],
+        "go": [
+          "github.com/aws/aws-sdk-go",
+          "github.com/aws/aws-sdk-go-v2"
+        ]
+      },
+      "risk_justification": "Global provider with configurable data residency; EU regions available; requires explicit configuration and DPA for GDPR compliance"
+    },
+    "aws_bedrock": {
+      "name": "AWS Bedrock",
+      "headquarters": "Variable",
+      "risk_level": "HIGH",
+      "category": "AI/ML",
+      "packages": {
+        "python": [
+          "boto3"
+        ],
+        "javascript": [
+          "@aws-sdk/client-bedrock",
+          "@aws-sdk/client-bedrock-runtime"
+        ],
+        "java": [
+          "software.amazon.awssdk.services.bedrock"
+        ],
+        "csharp": [
+          "AWSSDK.Bedrock",
+          "AWSSDK.BedrockRuntime"
+        ],
+        "go": []
+      },
+      "risk_justification": "US-headquartered AI provider; processes prompts and data through US infrastructure; no EU adequacy decision; AI training data practices require scrutiny"
+    },
+    "gcp": {
+      "name": "Google Cloud",
+      "headquarters": "Variable",
+      "risk_level": "MEDIUM",
+      "category": "Cloud",
+      "packages": {
+        "python": [
+          "google.cloud",
+          "google-cloud-storage",
+          "google-cloud-bigquery",
+          "google-cloud-pubsub"
+        ],
+        "javascript": [
+          "@google-cloud/storage",
+          "@google-cloud/bigquery",
+          "@google-cloud/pubsub"
+        ],
+        "java": [
+          "com.google.cloud"
+        ],
+        "csharp": [
+          "Google.Cloud.Storage.V1",
+          "Google.Cloud.BigQuery.V2"
+        ],
+        "go": [
+          "cloud.google.com",
+          "google.golang.org/api"
+        ]
+      },
+      "risk_justification": "Global provider with configurable data residency; EU regions available; requires explicit configuration and DPA for GDPR compliance"
+    },
+    "azure": {
+      "name": "Microsoft Azure",
+      "headquarters": "Variable",
+      "risk_level": "MEDIUM",
+      "category": "Cloud",
+      "packages": {
+        "python": [
+          "azure-storage-blob",
+          "azure-identity",
+          "azure-keyvault"
+        ],
+        "javascript": [
+          "@azure/storage-blob",
+          "@azure/identity",
+          "@azure/keyvault-secrets"
+        ],
+        "java": [
+          "com.azure"
+        ],
+        "csharp": [
+          "Azure.Storage.Blobs",
+          "Azure.Identity",
+          "Azure.Security.KeyVault"
+        ],
+        "go": [
+          "github.com/Azure/azure-sdk-for-go"
+        ]
+      },
+      "risk_justification": "Global provider with configurable data residency; EU regions available; requires explicit configuration and DPA for GDPR compliance"
+    },
+    "azure_openai": {
+      "name": "Azure OpenAI",
+      "headquarters": "Variable",
+      "risk_level": "MEDIUM",
+      "category": "AI/ML",
+      "packages": {
+        "python": [
+          "openai"
+        ],
+        "javascript": [
+          "@azure/openai"
+        ],
+        "java": [
+          "com.azure.ai.openai"
+        ],
+        "csharp": [
+          "Azure.AI.OpenAI"
+        ],
+        "go": []
+      },
+      "risk_justification": "Global provider with configurable data residency; EU regions available; requires explicit configuration and DPA for GDPR compliance"
+    },
+    "oracle_cloud": {
+      "name": "Oracle Cloud",
+      "headquarters": "Variable",
+      "risk_level": "MEDIUM",
+      "category": "Cloud",
+      "packages": {
+        "python": [
+          "oci"
+        ],
+        "javascript": [
+          "oci-sdk"
+        ],
+        "java": [
+          "com.oracle.oci"
+        ],
+        "csharp": [
+          "OCI.DotNetSDK"
+        ],
+        "go": [
+          "github.com/oracle/oci-go-sdk"
+        ]
+      },
+      "risk_justification": "Global provider with configurable data residency; EU regions available; requires explicit configuration and DPA for GDPR compliance"
+    },
+    "ibm_cloud": {
+      "name": "IBM Cloud",
+      "headquarters": "Variable",
+      "risk_level": "MEDIUM",
+      "category": "Cloud",
+      "packages": {
+        "python": [
+          "ibm-watson",
+          "ibm-cloud-sdk-core"
+        ],
+        "javascript": [
+          "ibm-watson",
+          "@ibm-cloud/cloudant"
+        ],
+        "java": [
+          "com.ibm.watson",
+          "com.ibm.cloud"
+        ],
+        "csharp": [
+          "IBM.Cloud.SDK",
+          "IBM.Watson"
+        ],
+        "go": [
+          "github.com/IBM/go-sdk-core",
+          "github.com/IBM/watson-go-sdk"
+        ]
+      },
+      "risk_justification": "Global provider with configurable data residency; EU regions available; requires explicit configuration and DPA for GDPR compliance"
+    },
+    "alibaba_cloud": {
+      "name": "Alibaba Cloud",
+      "headquarters": "China",
+      "risk_level": "HIGH",
+      "category": "Cloud",
+      "packages": {
+        "python": [
+          "alibabacloud-oss20190517",
+          "aliyun-python-sdk-core"
+        ],
+        "javascript": [
+          "@alicloud/oss20190517",
+          "@alicloud/openapi-client"
+        ],
+        "java": [
+          "com.aliyun",
+          "com.alibaba.cloud"
+        ],
+        "csharp": [
+          "AlibabaCloud.SDK",
+          "Aliyun.OSS"
+        ],
+        "go": [
+          "github.com/aliyun/alibaba-cloud-sdk-go"
+        ]
+      },
+      "risk_justification": "China-headquartered; subject to Chinese data localization and security laws; no EU adequacy decision; significant regulatory divergence from GDPR"
+    },
+    "tencent_cloud": {
+      "name": "Tencent Cloud",
+      "headquarters": "China",
+      "risk_level": "HIGH",
+      "category": "Cloud",
+      "packages": {
+        "python": [
+          "tencentcloud-sdk-python"
+        ],
+        "javascript": [
+          "tencentcloud-sdk-nodejs"
+        ],
+        "java": [
+          "com.tencentcloudapi"
+        ],
+        "csharp": [
+          "TencentCloud"
+        ],
+        "go": [
+          "github.com/tencentcloud/tencentcloud-sdk-go"
+        ]
+      },
+      "risk_justification": "China-headquartered; subject to Chinese data localization and security laws; no EU adequacy decision; significant regulatory divergence from GDPR"
+    },
+    "digitalocean": {
+      "name": "DigitalOcean",
+      "headquarters": "US",
+      "risk_level": "MEDIUM",
+      "category": "Cloud",
+      "packages": {
+        "python": [
+          "digitalocean"
+        ],
+        "javascript": [
+          "digitalocean"
+        ],
+        "java": [
+          "com.digitalocean"
+        ],
+        "csharp": [
+          "DigitalOcean.API"
+        ],
+        "go": [
+          "github.com/digitalocean/godo"
+        ]
+      },
+      "risk_justification": "Cloud infrastructure provider; US-headquartered but offers EU regions; requires explicit region selection for compliance"
+    },
+    "cloudflare": {
+      "name": "Cloudflare",
+      "headquarters": "US",
+      "risk_level": "MEDIUM",
+      "category": "Cloud",
+      "packages": {
+        "python": [
+          "cloudflare"
+        ],
+        "javascript": [
+          "cloudflare",
+          "@cloudflare/workers-types"
+        ],
+        "java": [
+          "com.cloudflare"
+        ],
+        "csharp": [
+          "Cloudflare.API"
+        ],
+        "go": [
+          "github.com/cloudflare/cloudflare-go"
+        ]
+      },
+      "risk_justification": "Cloud infrastructure provider; US-headquartered but offers EU regions; requires explicit region selection for compliance"
+    },
+    "vercel": {
+      "name": "Vercel",
+      "headquarters": "US",
+      "risk_level": "MEDIUM",
+      "category": "Cloud",
+      "packages": {
+        "python": [],
+        "javascript": [
+          "@vercel/node",
+          "@vercel/postgres",
+          "@vercel/kv",
+          "@vercel/blob"
+        ],
+        "java": [],
+        "csharp": [],
+        "go": []
+      },
+      "risk_justification": "Cloud infrastructure provider; US-headquartered but offers EU regions; requires explicit region selection for compliance"
+    },
+    "netlify": {
+      "name": "Netlify",
+      "headquarters": "US",
+      "risk_level": "MEDIUM",
+      "category": "Cloud",
+      "packages": {
+        "python": [],
+        "javascript": [
+          "@netlify/functions",
+          "netlify-cli",
+          "@netlify/edge-functions"
+        ],
+        "java": [],
+        "csharp": [],
+        "go": []
+      },
+      "risk_justification": "Cloud infrastructure provider; US-headquartered but offers EU regions; requires explicit region selection for compliance"
+    },
+    "railway": {
+      "name": "Railway",
+      "headquarters": "US",
+      "risk_level": "MEDIUM",
+      "category": "Cloud",
+      "packages": {
+        "python": [],
+        "javascript": [],
+        "java": [],
+        "csharp": [],
+        "go": []
+      },
+      "risk_justification": "Cloud infrastructure provider; US-headquartered but offers EU regions; requires explicit region selection for compliance"
+    },
+    "flyio": {
+      "name": "Fly.io",
+      "headquarters": "US",
+      "risk_level": "MEDIUM",
+      "category": "Cloud",
+      "packages": {
+        "python": [],
+        "javascript": [
+          "@fly/fly"
+        ],
+        "java": [],
+        "csharp": [],
+        "go": []
+      },
+      "risk_justification": "Cloud infrastructure provider; US-headquartered but offers EU regions; requires explicit region selection for compliance"
+    },
+    "render": {
+      "name": "Render",
+      "headquarters": "US",
+      "risk_level": "MEDIUM",
+      "category": "Cloud",
+      "packages": {
+        "python": [],
+        "javascript": [],
+        "java": [],
+        "csharp": [],
+        "go": []
+      },
+      "risk_justification": "Cloud infrastructure provider; US-headquartered but offers EU regions; requires explicit region selection for compliance"
+    },
+    "heroku": {
+      "name": "Heroku/Salesforce",
+      "headquarters": "US",
+      "risk_level": "MEDIUM",
+      "category": "Cloud",
+      "packages": {
+        "python": [],
+        "javascript": [
+          "heroku-client"
+        ],
+        "java": [
+          "com.heroku.sdk"
+        ],
+        "csharp": [],
+        "go": [
+          "github.com/heroku/heroku-go"
+        ]
+      },
+      "risk_justification": "Cloud infrastructure provider; US-headquartered but offers EU regions; requires explicit region selection for compliance"
+    },
+    "ovhcloud": {
+      "name": "OVHcloud",
+      "headquarters": "France/EU",
+      "risk_level": "LOW",
+      "category": "Cloud",
+      "packages": {
+        "python": [
+          "ovh"
+        ],
+        "javascript": [
+          "ovh"
+        ],
+        "java": [],
+        "csharp": [],
+        "go": [
+          "github.com/ovh/go-ovh"
+        ]
+      },
+      "risk_justification": "EU/EEA-headquartered (France/EU); GDPR-native compliance; data processed within EU jurisdiction by default"
+    },
+    "scaleway": {
+      "name": "Scaleway",
+      "headquarters": "France/EU",
+      "risk_level": "LOW",
+      "category": "Cloud",
+      "packages": {
+        "python": [
+          "scaleway"
+        ],
+        "javascript": [
+          "@scaleway/sdk"
+        ],
+        "java": [],
+        "csharp": [],
+        "go": [
+          "github.com/scaleway/scaleway-sdk-go"
+        ]
+      },
+      "risk_justification": "EU/EEA-headquartered (France/EU); GDPR-native compliance; data processed within EU jurisdiction by default"
+    },
+    "hetzner": {
+      "name": "Hetzner",
+      "headquarters": "Germany/EU",
+      "risk_level": "LOW",
+      "category": "Cloud",
+      "packages": {
+        "python": [
+          "hcloud"
+        ],
+        "javascript": [
+          "hcloud-js"
+        ],
+        "java": [],
+        "csharp": [],
+        "go": [
+          "github.com/hetznercloud/hcloud-go"
+        ]
+      },
+      "risk_justification": "EU/EEA-headquartered (Germany/EU); GDPR-native compliance; data processed within EU jurisdiction by default"
+    },
+    "ionos": {
+      "name": "IONOS",
+      "headquarters": "Germany/EU",
+      "risk_level": "LOW",
+      "category": "Cloud",
+      "packages": {
+        "python": [
+          "ionoscloud"
+        ],
+        "javascript": [
+          "@ionos-cloud/sdk-nodejs"
+        ],
+        "java": [
+          "com.ionoscloud"
+        ],
+        "csharp": [],
+        "go": [
+          "github.com/ionos-cloud/sdk-go"
+        ]
+      },
+      "risk_justification": "EU/EEA-headquartered (Germany/EU); GDPR-native compliance; data processed within EU jurisdiction by default"
+    },
+    "stripe": {
+      "name": "Stripe",
+      "headquarters": "US",
+      "risk_level": "MEDIUM",
+      "category": "Payment",
+      "packages": {
+        "python": [
+          "stripe"
+        ],
+        "javascript": [
+          "stripe",
+          "@stripe/stripe-js"
+        ],
+        "java": [
+          "com.stripe"
+        ],
+        "csharp": [
+          "Stripe"
+        ],
+        "go": [
+          "github.com/stripe/stripe-go"
+        ]
+      },
+      "risk_justification": "US-headquartered financial data processor; offers EU data processing options; requires Data Processing Agreement; PCI-DSS compliant"
+    },
+    "paypal": {
+      "name": "PayPal",
+      "headquarters": "US",
+      "risk_level": "MEDIUM",
+      "category": "Payment",
+      "packages": {
+        "python": [
+          "paypalrestsdk",
+          "paypal-checkout-serversdk"
+        ],
+        "javascript": [
+          "@paypal/checkout-server-sdk",
+          "@paypal/paypal-js"
+        ],
+        "java": [
+          "com.paypal"
+        ],
+        "csharp": [
+          "PayPal",
+          "PayPalCheckoutSdk"
+        ],
+        "go": [
+          "github.com/plutov/paypal",
+          "github.com/paypal/paypal-go"
+        ]
+      },
+      "risk_justification": "US-headquartered financial data processor; offers EU data processing options; requires Data Processing Agreement; PCI-DSS compliant"
+    },
+    "braintree": {
+      "name": "Braintree/PayPal",
+      "headquarters": "US",
+      "risk_level": "MEDIUM",
+      "category": "Payment",
+      "packages": {
+        "python": [
+          "braintree"
+        ],
+        "javascript": [
+          "braintree",
+          "braintree-web"
+        ],
+        "java": [
+          "com.braintreepayments"
+        ],
+        "csharp": [
+          "Braintree"
+        ],
+        "go": [
+          "github.com/braintree-go/braintree-go"
+        ]
+      },
+      "risk_justification": "US-headquartered financial data processor (PayPal subsidiary); offers EU data processing options; requires Data Processing Agreement"
+    },
+    "square": {
+      "name": "Square",
+      "headquarters": "US",
+      "risk_level": "MEDIUM",
+      "category": "Payment",
+      "packages": {
+        "python": [
+          "squareup"
+        ],
+        "javascript": [
+          "square"
+        ],
+        "java": [
+          "com.squareup.square"
+        ],
+        "csharp": [
+          "Square"
+        ],
+        "go": [
+          "github.com/square/square-go-sdk"
+        ]
+      },
+      "risk_justification": "US-headquartered financial data processor; offers EU data processing options; requires Data Processing Agreement; PCI-DSS compliant"
+    },
+    "adyen": {
+      "name": "Adyen",
+      "headquarters": "Netherlands/EU",
+      "risk_level": "LOW",
+      "category": "Payment",
+      "packages": {
+        "python": [
+          "Adyen"
+        ],
+        "javascript": [
+          "@adyen/api-library"
+        ],
+        "java": [
+          "com.adyen"
+        ],
+        "csharp": [
+          "Adyen"
+        ],
+        "go": [
+          "github.com/adyen/adyen-go-api-library"
+        ]
+      },
+      "risk_justification": "EU/EEA-headquartered (Netherlands/EU); GDPR-native compliance; data processed within EU jurisdiction by default"
+    },
+    "klarna": {
+      "name": "Klarna",
+      "headquarters": "Sweden/EU",
+      "risk_level": "LOW",
+      "category": "Payment",
+      "packages": {
+        "python": [
+          "klarna"
+        ],
+        "javascript": [
+          "@klarna/checkout-sdk"
+        ],
+        "java": [
+          "com.klarna"
+        ],
+        "csharp": [
+          "Klarna.Checkout"
+        ],
+        "go": []
+      },
+      "risk_justification": "EU/EEA-headquartered (Sweden/EU); GDPR-native compliance; data processed within EU jurisdiction by default"
+    },
+    "mollie": {
+      "name": "Mollie",
+      "headquarters": "Netherlands/EU",
+      "risk_level": "LOW",
+      "category": "Payment",
+      "packages": {
+        "python": [
+          "mollie-api-python"
+        ],
+        "javascript": [
+          "@mollie/api-client"
+        ],
+        "java": [
+          "com.mollie"
+        ],
+        "csharp": [
+          "Mollie.Api"
+        ],
+        "go": []
+      },
+      "risk_justification": "EU/EEA-headquartered (Netherlands/EU); GDPR-native compliance; data processed within EU jurisdiction by default"
+    },
+    "razorpay": {
+      "name": "Razorpay",
+      "headquarters": "India",
+      "risk_level": "MEDIUM",
+      "category": "Payment",
+      "packages": {
+        "python": [
+          "razorpay"
+        ],
+        "javascript": [
+          "razorpay"
+        ],
+        "java": [
+          "com.razorpay"
+        ],
+        "csharp": [
+          "Razorpay"
+        ],
+        "go": [
+          "github.com/razorpay/razorpay-go"
+        ]
+      },
+      "risk_justification": "India-headquartered financial data processor; no EU adequacy decision for India; limited EU data processing options; PCI-DSS compliant"
+    },
+    "worldpay": {
+      "name": "Worldpay",
+      "headquarters": "UK",
+      "risk_level": "MEDIUM",
+      "category": "Payment",
+      "packages": {
+        "python": [
+          "worldpay"
+        ],
+        "javascript": [
+          "worldpay"
+        ],
+        "java": [
+          "com.worldpay"
+        ],
+        "csharp": [
+          "Worldpay"
+        ],
+        "go": []
+      },
+      "risk_justification": "UK-headquartered financial data processor; UK adequacy decision in place; GDPR-aligned; PCI-DSS compliant"
+    },
+    "plaid": {
+      "name": "Plaid",
+      "headquarters": "US",
+      "risk_level": "HIGH",
+      "category": "Payment",
+      "packages": {
+        "python": [
+          "plaid-python"
+        ],
+        "javascript": [
+          "plaid",
+          "react-plaid-link"
+        ],
+        "java": [
+          "com.plaid"
+        ],
+        "csharp": [
+          "Plaid"
+        ],
+        "go": [
+          "github.com/plaid/plaid-go"
+        ]
+      },
+      "risk_justification": "Financial data processor handling payment and account details; US-headquartered without EU adequacy decision; high sensitivity financial PII"
+    },
+    "checkout": {
+      "name": "Checkout.com",
+      "headquarters": "UK",
+      "risk_level": "MEDIUM",
+      "category": "Payment",
+      "packages": {
+        "python": [
+          "checkout-sdk"
+        ],
+        "javascript": [
+          "checkout-sdk-node"
+        ],
+        "java": [
+          "com.checkout"
+        ],
+        "csharp": [
+          "Checkout"
+        ],
+        "go": []
+      },
+      "risk_justification": "UK-headquartered financial data processor; UK adequacy decision in place; GDPR-aligned; PCI-DSS compliant"
+    },
+    "gocardless": {
+      "name": "GoCardless",
+      "headquarters": "UK",
+      "risk_level": "MEDIUM",
+      "category": "Payment",
+      "packages": {
+        "python": [
+          "gocardless-pro"
+        ],
+        "javascript": [
+          "gocardless-nodejs"
+        ],
+        "java": [
+          "com.gocardless"
+        ],
+        "csharp": [
+          "GoCardless"
+        ],
+        "go": []
+      },
+      "risk_justification": "UK-headquartered payment processor; UK adequacy decision in place; GDPR-aligned; specializes in recurring payments"
+    },
+    "wise": {
+      "name": "Wise",
+      "headquarters": "UK",
+      "risk_level": "MEDIUM",
+      "category": "Payment",
+      "packages": {
+        "python": [
+          "wise"
+        ],
+        "javascript": [
+          "wise"
+        ],
+        "java": [
+          "com.wise"
+        ],
+        "csharp": [],
+        "go": []
+      },
+      "risk_justification": "UK-headquartered financial services; UK adequacy decision in place; GDPR-aligned; international transfers"
+    },
+    "alipay": {
+      "name": "Alipay",
+      "headquarters": "China",
+      "risk_level": "HIGH",
+      "category": "Payment",
+      "packages": {
+        "python": [
+          "alipay-sdk-python"
+        ],
+        "javascript": [
+          "alipay-sdk"
+        ],
+        "java": [
+          "com.alipay.sdk"
+        ],
+        "csharp": [
+          "Alipay.AopSdk"
+        ],
+        "go": []
+      },
+      "risk_justification": "China-headquartered; subject to Chinese data localization and security laws; no EU adequacy decision; significant regulatory divergence from GDPR"
+    },
+    "wechat_pay": {
+      "name": "WeChat Pay",
+      "headquarters": "China",
+      "risk_level": "HIGH",
+      "category": "Payment",
+      "packages": {
+        "python": [
+          "wechatpayv3"
+        ],
+        "javascript": [
+          "wechatpay-node-v3"
+        ],
+        "java": [
+          "com.github.wechatpay-apiv3"
+        ],
+        "csharp": [
+          "WeChatPay"
+        ],
+        "go": [
+          "github.com/wechatpay-apiv3/wechatpay-go"
+        ]
+      },
+      "risk_justification": "China-headquartered; subject to Chinese data localization and security laws; no EU adequacy decision; significant regulatory divergence from GDPR"
+    },
+    "affirm": {
+      "name": "Affirm",
+      "headquarters": "US",
+      "risk_level": "HIGH",
+      "category": "Payment",
+      "packages": {
+        "python": [
+          "affirm"
+        ],
+        "javascript": [
+          "affirm-js"
+        ],
+        "java": [],
+        "csharp": [],
+        "go": []
+      },
+      "risk_justification": "Financial data processor handling payment and account details; US-headquartered without EU adequacy decision; high sensitivity financial PII"
+    },
+    "afterpay": {
+      "name": "Afterpay/Clearpay",
+      "headquarters": "Australia",
+      "risk_level": "MEDIUM",
+      "category": "Payment",
+      "packages": {
+        "python": [],
+        "javascript": [
+          "afterpay-sdk"
+        ],
+        "java": [],
+        "csharp": [],
+        "go": []
+      },
+      "risk_justification": "Australia-headquartered payment processor; no direct EU adequacy decision; requires DPA for GDPR compliance"
+    },
+    "twilio": {
+      "name": "Twilio",
+      "headquarters": "US",
+      "risk_level": "HIGH",
+      "category": "Communication",
+      "packages": {
+        "python": [
+          "twilio"
+        ],
+        "javascript": [
+          "twilio"
+        ],
+        "java": [
+          "com.twilio"
+        ],
+        "csharp": [
+          "Twilio"
+        ],
+        "go": [
+          "github.com/twilio/twilio-go"
+        ]
+      },
+      "risk_justification": "Processes personal communication data (messages, calls, contact info); US-headquartered without EU adequacy decision; high sensitivity of communication content"
+    },
+    "sendgrid": {
+      "name": "SendGrid/Twilio",
+      "headquarters": "US",
+      "risk_level": "HIGH",
+      "category": "Communication",
+      "packages": {
+        "python": [
+          "sendgrid"
+        ],
+        "javascript": [
+          "@sendgrid/mail",
+          "@sendgrid/client"
+        ],
+        "java": [
+          "com.sendgrid"
+        ],
+        "csharp": [
+          "SendGrid"
+        ],
+        "go": [
+          "github.com/sendgrid/sendgrid-go"
+        ]
+      },
+      "risk_justification": "Processes personal communication data (messages, calls, contact info); US-headquartered without EU adequacy decision; high sensitivity of communication content"
+    },
+    "mailchimp": {
+      "name": "Mailchimp",
+      "headquarters": "US",
+      "risk_level": "HIGH",
+      "category": "Communication",
+      "packages": {
+        "python": [
+          "mailchimp3",
+          "mailchimp-transactional"
+        ],
+        "javascript": [
+          "@mailchimp/mailchimp_marketing",
+          "@mailchimp/mailchimp_transactional"
+        ],
+        "java": [
+          "com.mailchimp",
+          "com.mandrillapp"
+        ],
+        "csharp": [
+          "MailChimp.Net.V3",
+          "Mandrill"
+        ],
+        "go": [
+          "github.com/mailchimp/mailchimp-transactional-go"
+        ]
+      },
+      "risk_justification": "Processes personal communication data (messages, calls, contact info); US-headquartered without EU adequacy decision; high sensitivity of communication content"
+    },
+    "mailgun": {
+      "name": "Mailgun",
+      "headquarters": "US",
+      "risk_level": "HIGH",
+      "category": "Communication",
+      "packages": {
+        "python": [
+          "mailgun"
+        ],
+        "javascript": [
+          "mailgun.js",
+          "mailgun-js"
+        ],
+        "java": [
+          "com.mailgun"
+        ],
+        "csharp": [
+          "Mailgun"
+        ],
+        "go": [
+          "github.com/mailgun/mailgun-go"
+        ]
+      },
+      "risk_justification": "Processes personal communication data (messages, calls, contact info); US-headquartered without EU adequacy decision; high sensitivity of communication content"
+    },
+    "postmark": {
+      "name": "Postmark",
+      "headquarters": "US",
+      "risk_level": "HIGH",
+      "category": "Communication",
+      "packages": {
+        "python": [
+          "postmarker"
+        ],
+        "javascript": [
+          "postmark"
+        ],
+        "java": [
+          "com.postmarkapp"
+        ],
+        "csharp": [
+          "Postmark"
+        ],
+        "go": [
+          "github.com/keighl/postmark"
+        ]
+      },
+      "risk_justification": "Processes personal communication data (messages, calls, contact info); US-headquartered without EU adequacy decision; high sensitivity of communication content"
+    },
+    "sparkpost": {
+      "name": "SparkPost",
+      "headquarters": "US",
+      "risk_level": "HIGH",
+      "category": "Communication",
+      "packages": {
+        "python": [
+          "sparkpost"
+        ],
+        "javascript": [
+          "sparkpost"
+        ],
+        "java": [
+          "com.sparkpost"
+        ],
+        "csharp": [
+          "SparkPost"
+        ],
+        "go": [
+          "github.com/SparkPost/gosparkpost"
+        ]
+      },
+      "risk_justification": "Processes personal communication data (messages, calls, contact info); US-headquartered without EU adequacy decision; high sensitivity of communication content"
+    },
+    "messagebird": {
+      "name": "MessageBird",
+      "headquarters": "Netherlands/EU",
+      "risk_level": "LOW",
+      "category": "Communication",
+      "packages": {
+        "python": [
+          "messagebird"
+        ],
+        "javascript": [
+          "messagebird"
+        ],
+        "java": [
+          "com.messagebird"
+        ],
+        "csharp": [
+          "MessageBird"
+        ],
+        "go": [
+          "github.com/messagebird/go-rest-api"
+        ]
+      },
+      "risk_justification": "EU/EEA-headquartered (Netherlands/EU); GDPR-native compliance; data processed within EU jurisdiction by default"
+    },
+    "vonage": {
+      "name": "Vonage",
+      "headquarters": "US",
+      "risk_level": "HIGH",
+      "category": "Communication",
+      "packages": {
+        "python": [
+          "vonage"
+        ],
+        "javascript": [
+          "@vonage/server-sdk"
+        ],
+        "java": [
+          "com.vonage"
+        ],
+        "csharp": [
+          "Vonage"
+        ],
+        "go": [
+          "github.com/vonage/vonage-go-sdk"
+        ]
+      },
+      "risk_justification": "Processes personal communication data (messages, calls, contact info); US-headquartered without EU adequacy decision; high sensitivity of communication content"
+    },
+    "plivo": {
+      "name": "Plivo",
+      "headquarters": "US",
+      "risk_level": "HIGH",
+      "category": "Communication",
+      "packages": {
+        "python": [
+          "plivo"
+        ],
+        "javascript": [
+          "plivo"
+        ],
+        "java": [
+          "com.plivo"
+        ],
+        "csharp": [
+          "Plivo"
+        ],
+        "go": [
+          "github.com/plivo/plivo-go"
+        ]
+      },
+      "risk_justification": "Processes personal communication data (messages, calls, contact info); US-headquartered without EU adequacy decision; high sensitivity of communication content"
+    },
+    "bandwidth": {
+      "name": "Bandwidth",
+      "headquarters": "US",
+      "risk_level": "HIGH",
+      "category": "Communication",
+      "packages": {
+        "python": [
+          "bandwidth"
+        ],
+        "javascript": [
+          "@bandwidth/messaging",
+          "@bandwidth/voice"
+        ],
+        "java": [
+          "com.bandwidth"
+        ],
+        "csharp": [
+          "Bandwidth.Sdk"
+        ],
+        "go": [
+          "github.com/bandwidth/bandwidth-sdk-go"
+        ]
+      },
+      "risk_justification": "Processes personal communication data (messages, calls, contact info); US-headquartered without EU adequacy decision; high sensitivity of communication content"
+    },
+    "telnyx": {
+      "name": "Telnyx",
+      "headquarters": "US",
+      "risk_level": "HIGH",
+      "category": "Communication",
+      "packages": {
+        "python": [
+          "telnyx"
+        ],
+        "javascript": [
+          "telnyx"
+        ],
+        "java": [
+          "com.telnyx"
+        ],
+        "csharp": [
+          "Telnyx"
+        ],
+        "go": [
+          "github.com/team-telnyx/telnyx-go"
+        ]
+      },
+      "risk_justification": "Processes personal communication data (messages, calls, contact info); US-headquartered without EU adequacy decision; high sensitivity of communication content"
+    },
+    "sinch": {
+      "name": "Sinch",
+      "headquarters": "Sweden/EU",
+      "risk_level": "LOW",
+      "category": "Communication",
+      "packages": {
+        "python": [
+          "sinch"
+        ],
+        "javascript": [
+          "@sinch/sdk-core"
+        ],
+        "java": [
+          "com.sinch"
+        ],
+        "csharp": [
+          "Sinch"
+        ],
+        "go": [
+          "github.com/sinch/sinch-sdk-go"
+        ]
+      },
+      "risk_justification": "EU/EEA-headquartered (Sweden/EU); GDPR-native compliance; data processed within EU jurisdiction by default"
+    },
+    "pusher": {
+      "name": "Pusher",
+      "headquarters": "UK",
+      "risk_level": "MEDIUM",
+      "category": "Communication",
+      "packages": {
+        "python": [
+          "pusher"
+        ],
+        "javascript": [
+          "pusher",
+          "pusher-js"
+        ],
+        "java": [
+          "com.pusher"
+        ],
+        "csharp": [
+          "PusherServer"
+        ],
+        "go": [
+          "github.com/pusher/pusher-http-go"
+        ]
+      },
+      "risk_justification": "UK-headquartered real-time communication service; UK adequacy decision in place; GDPR-aligned infrastructure"
+    },
+    "ably": {
+      "name": "Ably",
+      "headquarters": "UK",
+      "risk_level": "MEDIUM",
+      "category": "Communication",
+      "packages": {
+        "python": [
+          "ably"
+        ],
+        "javascript": [
+          "ably"
+        ],
+        "java": [
+          "io.ably"
+        ],
+        "csharp": [
+          "Ably"
+        ],
+        "go": [
+          "github.com/ably/ably-go"
+        ]
+      },
+      "risk_justification": "UK-headquartered real-time messaging; UK adequacy decision in place; GDPR-aligned; EU hosting options"
+    },
+    "pubnub": {
+      "name": "PubNub",
+      "headquarters": "US",
+      "risk_level": "HIGH",
+      "category": "Communication",
+      "packages": {
+        "python": [
+          "pubnub"
+        ],
+        "javascript": [
+          "pubnub"
+        ],
+        "java": [
+          "com.pubnub"
+        ],
+        "csharp": [
+          "PubnubApi"
+        ],
+        "go": [
+          "github.com/pubnub/go"
+        ]
+      },
+      "risk_justification": "Processes personal communication data (messages, calls, contact info); US-headquartered without EU adequacy decision; high sensitivity of communication content"
+    },
+    "segment": {
+      "name": "Segment/Twilio",
+      "headquarters": "US",
+      "risk_level": "HIGH",
+      "category": "Analytics",
+      "packages": {
+        "python": [
+          "analytics-python",
+          "segment-analytics-python"
+        ],
+        "javascript": [
+          "analytics-node",
+          "@segment/analytics-node"
+        ],
+        "java": [
+          "com.segment.analytics",
+          "com.segment.analytics.java"
+        ],
+        "csharp": [
+          "Segment.Analytics"
+        ],
+        "go": [
+          "github.com/segmentio/analytics-go"
+        ]
+      },
+      "risk_justification": "Behavioral analytics platform; aggregates user data profiles; US-headquartered without EU adequacy decision; high data aggregation risk"
+    },
+    "mixpanel": {
+      "name": "Mixpanel",
+      "headquarters": "US",
+      "risk_level": "MEDIUM",
+      "category": "Analytics",
+      "packages": {
+        "python": [
+          "mixpanel"
+        ],
+        "javascript": [
+          "mixpanel",
+          "mixpanel-browser"
+        ],
+        "java": [
+          "com.mixpanel"
+        ],
+        "csharp": [
+          "Mixpanel"
+        ],
+        "go": [
+          "github.com/mixpanel/mixpanel-go"
+        ]
+      },
+      "risk_justification": "Analytics platform; US-headquartered but offers EU data residency options; requires configuration for GDPR compliance"
+    },
+    "amplitude": {
+      "name": "Amplitude",
+      "headquarters": "US",
+      "risk_level": "MEDIUM",
+      "category": "Analytics",
+      "packages": {
+        "python": [
+          "amplitude-analytics"
+        ],
+        "javascript": [
+          "@amplitude/analytics-browser",
+          "@amplitude/analytics-node"
+        ],
+        "java": [
+          "com.amplitude"
+        ],
+        "csharp": [
+          "Amplitude"
+        ],
+        "go": [
+          "github.com/amplitude/analytics-go"
+        ]
+      },
+      "risk_justification": "Analytics platform; US-headquartered but offers EU data residency options; requires configuration for GDPR compliance"
+    },
+    "heap": {
+      "name": "Heap",
+      "headquarters": "US",
+      "risk_level": "HIGH",
+      "category": "Analytics",
+      "packages": {
+        "python": [
+          "heap"
+        ],
+        "javascript": [
+          "heap-analytics"
+        ],
+        "java": [
+          "io.heap"
+        ],
+        "csharp": [
+          "Heap"
+        ],
+        "go": []
+      },
+      "risk_justification": "Session replay/behavioral analytics; captures detailed user interactions potentially including PII; US-headquartered without EU adequacy decision"
+    },
+    "rudderstack": {
+      "name": "RudderStack",
+      "headquarters": "US",
+      "risk_level": "MEDIUM",
+      "category": "Analytics",
+      "packages": {
+        "python": [
+          "rudderstack"
+        ],
+        "javascript": [
+          "@rudderstack/rudder-sdk-node"
+        ],
+        "java": [
+          "com.rudderstack"
+        ],
+        "csharp": [
+          "RudderStack"
+        ],
+        "go": [
+          "github.com/rudderlabs/analytics-go"
+        ]
+      },
+      "risk_justification": "Analytics platform; US-headquartered but offers EU data residency options; requires configuration for GDPR compliance"
+    },
+    "posthog": {
+      "name": "PostHog",
+      "headquarters": "US/EU",
+      "risk_level": "LOW",
+      "category": "Analytics",
+      "packages": {
+        "python": [
+          "posthog"
+        ],
+        "javascript": [
+          "posthog-js",
+          "posthog-node"
+        ],
+        "java": [
+          "com.posthog"
+        ],
+        "csharp": [
+          "PostHog"
+        ],
+        "go": [
+          "github.com/posthog/posthog-go"
+        ]
+      },
+      "risk_justification": "EU/EEA-headquartered (US/EU); GDPR-native compliance; data processed within EU jurisdiction by default"
+    },
+    "datadog": {
+      "name": "Datadog",
+      "headquarters": "US",
+      "risk_level": "MEDIUM",
+      "category": "Analytics",
+      "packages": {
+        "python": [
+          "datadog",
+          "ddtrace"
+        ],
+        "javascript": [
+          "dd-trace",
+          "datadog-metrics"
+        ],
+        "java": [
+          "com.datadoghq"
+        ],
+        "csharp": [
+          "Datadog.Trace"
+        ],
+        "go": [
+          "github.com/DataDog/datadog-go"
+        ]
+      },
+      "risk_justification": "Analytics platform; US-headquartered but offers EU data residency options; requires configuration for GDPR compliance"
+    },
+    "newrelic": {
+      "name": "New Relic",
+      "headquarters": "US",
+      "risk_level": "MEDIUM",
+      "category": "Analytics",
+      "packages": {
+        "python": [
+          "newrelic"
+        ],
+        "javascript": [
+          "newrelic",
+          "@newrelic/browser-agent"
+        ],
+        "java": [
+          "com.newrelic.agent"
+        ],
+        "csharp": [
+          "NewRelic.Agent.Api"
+        ],
+        "go": [
+          "github.com/newrelic/go-agent"
+        ]
+      },
+      "risk_justification": "Analytics platform; US-headquartered but offers EU data residency options; requires configuration for GDPR compliance"
+    },
+    "sentry": {
+      "name": "Sentry",
+      "headquarters": "US",
+      "risk_level": "MEDIUM",
+      "category": "Analytics",
+      "packages": {
+        "python": [
+          "sentry-sdk"
+        ],
+        "javascript": [
+          "@sentry/browser",
+          "@sentry/node"
+        ],
+        "java": [
+          "io.sentry"
+        ],
+        "csharp": [
+          "Sentry"
+        ],
+        "go": [
+          "github.com/getsentry/sentry-go"
+        ]
+      },
+      "risk_justification": "Analytics platform; US-headquartered but offers EU data residency options; requires configuration for GDPR compliance"
+    },
+    "rollbar": {
+      "name": "Rollbar",
+      "headquarters": "US",
+      "risk_level": "MEDIUM",
+      "category": "Analytics",
+      "packages": {
+        "python": [
+          "rollbar"
+        ],
+        "javascript": [
+          "rollbar"
+        ],
+        "java": [
+          "com.rollbar"
+        ],
+        "csharp": [
+          "Rollbar"
+        ],
+        "go": [
+          "github.com/rollbar/rollbar-go"
+        ]
+      },
+      "risk_justification": "Analytics platform; US-headquartered but offers EU data residency options; requires configuration for GDPR compliance"
+    },
+    "bugsnag": {
+      "name": "Bugsnag",
+      "headquarters": "US",
+      "risk_level": "MEDIUM",
+      "category": "Analytics",
+      "packages": {
+        "python": [
+          "bugsnag"
+        ],
+        "javascript": [
+          "@bugsnag/browser",
+          "@bugsnag/node"
+        ],
+        "java": [
+          "com.bugsnag"
+        ],
+        "csharp": [
+          "Bugsnag"
+        ],
+        "go": [
+          "github.com/bugsnag/bugsnag-go"
+        ]
+      },
+      "risk_justification": "Analytics platform; US-headquartered but offers EU data residency options; requires configuration for GDPR compliance"
+    },
+    "google_analytics": {
+      "name": "Google Analytics",
+      "headquarters": "US",
+      "risk_level": "HIGH",
+      "category": "Analytics",
+      "packages": {
+        "python": [
+          "google-analytics-data",
+          "google-api-python-client"
+        ],
+        "javascript": [
+          "@google-analytics/data",
+          "ga-4-react",
+          "react-ga4"
+        ],
+        "java": [
+          "com.google.analytics"
+        ],
+        "csharp": [
+          "Google.Analytics",
+          "GoogleAnalytics"
+        ],
+        "go": [
+          "google.golang.org/api/analyticsdata"
+        ]
+      },
+      "risk_justification": "Behavioral analytics platform; aggregates user data profiles; US-headquartered without EU adequacy decision; high data aggregation risk"
+    },
+    "hotjar": {
+      "name": "Hotjar",
+      "headquarters": "Malta/EU",
+      "risk_level": "HIGH",
+      "category": "Analytics",
+      "packages": {
+        "python": [],
+        "javascript": [
+          "@hotjar/browser",
+          "react-hotjar"
+        ],
+        "java": [],
+        "csharp": [],
+        "go": []
+      },
+      "risk_justification": "EU-headquartered (Malta) behavioral analytics; GDPR-native compliance; session replay captures detailed user interactions"
+    },
+    "fullstory": {
+      "name": "FullStory",
+      "headquarters": "US",
+      "risk_level": "HIGH",
+      "category": "Analytics",
+      "packages": {
+        "python": [
+          "fullstory"
+        ],
+        "javascript": [
+          "@fullstory/browser",
+          "@fullstory/react"
+        ],
+        "java": [],
+        "csharp": [],
+        "go": []
+      },
+      "risk_justification": "Session replay/behavioral analytics; captures detailed user interactions potentially including PII; US-headquartered without EU adequacy decision"
+    },
+    "logrocket": {
+      "name": "LogRocket",
+      "headquarters": "US",
+      "risk_level": "HIGH",
+      "category": "Analytics",
+      "packages": {
+        "python": [],
+        "javascript": [
+          "logrocket",
+          "@logrocket/react"
+        ],
+        "java": [],
+        "csharp": [],
+        "go": []
+      },
+      "risk_justification": "Session replay/behavioral analytics; captures detailed user interactions potentially including PII; US-headquartered without EU adequacy decision"
+    },
+    "splunk": {
+      "name": "Splunk",
+      "headquarters": "US",
+      "risk_level": "MEDIUM",
+      "category": "Analytics",
+      "packages": {
+        "python": [
+          "splunk-sdk",
+          "splunklib"
+        ],
+        "javascript": [
+          "splunk-sdk",
+          "@splunk/cloud-sdk"
+        ],
+        "java": [
+          "com.splunk"
+        ],
+        "csharp": [
+          "Splunk.Client"
+        ],
+        "go": [
+          "github.com/splunk/splunk-cloud-sdk-go"
+        ]
+      },
+      "risk_justification": "Analytics platform; US-headquartered but offers EU data residency options; requires configuration for GDPR compliance"
+    },
+    "grafana": {
+      "name": "Grafana Cloud",
+      "headquarters": "US",
+      "risk_level": "MEDIUM",
+      "category": "Analytics",
+      "packages": {
+        "python": [
+          "grafana-client",
+          "grafana-api"
+        ],
+        "javascript": [
+          "@grafana/runtime",
+          "@grafana/data"
+        ],
+        "java": [],
+        "csharp": [],
+        "go": [
+          "github.com/grafana/grafana-api-golang-client"
+        ]
+      },
+      "risk_justification": "Analytics platform; US-headquartered but offers EU data residency options; requires configuration for GDPR compliance"
+    },
+    "pendo": {
+      "name": "Pendo",
+      "headquarters": "US",
+      "risk_level": "HIGH",
+      "category": "Analytics",
+      "packages": {
+        "python": [],
+        "javascript": [
+          "@pendo/agent"
+        ],
+        "java": [],
+        "csharp": [],
+        "go": []
+      },
+      "risk_justification": "Session replay/behavioral analytics; captures detailed user interactions potentially including PII; US-headquartered without EU adequacy decision"
+    },
+    "firebase": {
+      "name": "Firebase/Google",
+      "headquarters": "US",
+      "risk_level": "MEDIUM",
+      "category": "Analytics",
+      "packages": {
+        "python": [
+          "firebase-admin"
+        ],
+        "javascript": [
+          "firebase",
+          "firebase-admin",
+          "@firebase/app"
+        ],
+        "java": [
+          "com.google.firebase"
+        ],
+        "csharp": [
+          "FirebaseAdmin"
+        ],
+        "go": [
+          "firebase.google.com"
+        ]
+      },
+      "risk_justification": "Analytics platform; US-headquartered but offers EU data residency options; requires configuration for GDPR compliance"
+    },
+    "salesforce": {
+      "name": "Salesforce",
+      "headquarters": "US",
+      "risk_level": "MEDIUM",
+      "category": "CRM",
+      "packages": {
+        "python": [
+          "simple-salesforce",
+          "salesforce-bulk"
+        ],
+        "javascript": [
+          "jsforce",
+          "salesforce-sdk"
+        ],
+        "java": [
+          "com.salesforce"
+        ],
+        "csharp": [
+          "Salesforce.Force"
+        ],
+        "go": [
+          "github.com/simpleforce/simpleforce"
+        ]
+      },
+      "risk_justification": "Customer data platform; US-headquartered with EU hosting options; requires DPA for compliance"
+    },
+    "hubspot": {
+      "name": "HubSpot",
+      "headquarters": "US",
+      "risk_level": "MEDIUM",
+      "category": "CRM",
+      "packages": {
+        "python": [
+          "hubspot-api-client"
+        ],
+        "javascript": [
+          "@hubspot/api-client"
+        ],
+        "java": [
+          "com.hubspot"
+        ],
+        "csharp": [
+          "HubSpot.NET"
+        ],
+        "go": [
+          "github.com/hubspot/hubspot-api-go"
+        ]
+      },
+      "risk_justification": "Customer data platform; US-headquartered with EU hosting options; requires DPA for compliance"
+    },
+    "zendesk": {
+      "name": "Zendesk",
+      "headquarters": "US",
+      "risk_level": "MEDIUM",
+      "category": "CRM",
+      "packages": {
+        "python": [
+          "zenpy",
+          "zendesk"
+        ],
+        "javascript": [
+          "zendesk-node-sdk",
+          "@zendesk/node-sdk"
+        ],
+        "java": [
+          "org.zendesk"
+        ],
+        "csharp": [
+          "ZendeskApi_v2"
+        ],
+        "go": [
+          "github.com/nukosuke/go-zendesk"
+        ]
+      },
+      "risk_justification": "Customer data platform; US-headquartered with EU hosting options; requires DPA for compliance"
+    },
+    "intercom": {
+      "name": "Intercom",
+      "headquarters": "US",
+      "risk_level": "HIGH",
+      "category": "CRM",
+      "packages": {
+        "python": [
+          "python-intercom",
+          "intercom"
+        ],
+        "javascript": [
+          "intercom-client"
+        ],
+        "java": [
+          "io.intercom"
+        ],
+        "csharp": [
+          "Intercom.Core"
+        ],
+        "go": [
+          "github.com/intercom/intercom-go"
+        ]
+      },
+      "risk_justification": "Customer relationship data including contact details and interaction history; US-headquartered without EU adequacy decision; processes extensive customer PII"
+    },
+    "freshworks": {
+      "name": "Freshworks",
+      "headquarters": "India/US",
+      "risk_level": "MEDIUM",
+      "category": "CRM",
+      "packages": {
+        "python": [
+          "freshdesk",
+          "freshsales"
+        ],
+        "javascript": [
+          "freshdesk-api"
+        ],
+        "java": [
+          "com.freshworks"
+        ],
+        "csharp": [
+          "Freshdesk"
+        ],
+        "go": []
+      },
+      "risk_justification": "US/India-headquartered customer platform; neither has EU adequacy; requires DPA for GDPR compliance"
+    },
+    "pipedrive": {
+      "name": "Pipedrive",
+      "headquarters": "Estonia/EU",
+      "risk_level": "LOW",
+      "category": "CRM",
+      "packages": {
+        "python": [
+          "pipedrive"
+        ],
+        "javascript": [
+          "pipedrive"
+        ],
+        "java": [
+          "com.pipedrive"
+        ],
+        "csharp": [
+          "Pipedrive"
+        ],
+        "go": []
+      },
+      "risk_justification": "EU/EEA-headquartered (Estonia/EU); GDPR-native compliance; data processed within EU jurisdiction by default"
+    },
+    "braze": {
+      "name": "Braze",
+      "headquarters": "US",
+      "risk_level": "HIGH",
+      "category": "CRM",
+      "packages": {
+        "python": [
+          "braze-client"
+        ],
+        "javascript": [
+          "@braze/web-sdk"
+        ],
+        "java": [
+          "com.braze"
+        ],
+        "csharp": [
+          "BrazeClient"
+        ],
+        "go": [
+          "github.com/braze-inc/braze-go"
+        ]
+      },
+      "risk_justification": "Customer relationship data including contact details and interaction history; US-headquartered without EU adequacy decision; processes extensive customer PII"
+    },
+    "auth0": {
+      "name": "Auth0/Okta",
+      "headquarters": "US",
+      "risk_level": "HIGH",
+      "category": "Identity",
+      "packages": {
+        "python": [
+          "auth0-python"
+        ],
+        "javascript": [
+          "auth0",
+          "@auth0/auth0-spa-js",
+          "@auth0/nextjs-auth0"
+        ],
+        "java": [
+          "com.auth0"
+        ],
+        "csharp": [
+          "Auth0.AuthenticationApi",
+          "Auth0.ManagementApi"
+        ],
+        "go": [
+          "github.com/auth0/go-auth0"
+        ]
+      },
+      "risk_justification": "Handles authentication credentials and identity data; US-based without EU adequacy decision; processes sensitive access patterns and user profiles"
+    },
+    "okta": {
+      "name": "Okta",
+      "headquarters": "US",
+      "risk_level": "HIGH",
+      "category": "Identity",
+      "packages": {
+        "python": [
+          "okta",
+          "okta-jwt-verifier"
+        ],
+        "javascript": [
+          "@okta/okta-sdk-nodejs",
+          "@okta/okta-auth-js"
+        ],
+        "java": [
+          "com.okta"
+        ],
+        "csharp": [
+          "Okta.Sdk"
+        ],
+        "go": [
+          "github.com/okta/okta-sdk-golang"
+        ]
+      },
+      "risk_justification": "Handles authentication credentials and identity data; US-based without EU adequacy decision; processes sensitive access patterns and user profiles"
+    },
+    "stytch": {
+      "name": "Stytch",
+      "headquarters": "US",
+      "risk_level": "HIGH",
+      "category": "Identity",
+      "packages": {
+        "python": [
+          "stytch"
+        ],
+        "javascript": [
+          "stytch"
+        ],
+        "java": [
+          "com.stytch"
+        ],
+        "csharp": [
+          "Stytch"
+        ],
+        "go": [
+          "github.com/stytchauth/stytch-go"
+        ]
+      },
+      "risk_justification": "Handles authentication credentials and identity data; US-based without EU adequacy decision; processes sensitive access patterns and user profiles"
+    },
+    "clerk": {
+      "name": "Clerk",
+      "headquarters": "US",
+      "risk_level": "HIGH",
+      "category": "Identity",
+      "packages": {
+        "python": [
+          "clerk-sdk-python"
+        ],
+        "javascript": [
+          "@clerk/clerk-sdk-node",
+          "@clerk/nextjs"
+        ],
+        "java": [
+          "com.clerk"
+        ],
+        "csharp": [
+          "Clerk"
+        ],
+        "go": [
+          "github.com/clerk/clerk-sdk-go"
+        ]
+      },
+      "risk_justification": "Handles authentication credentials and identity data; US-based without EU adequacy decision; processes sensitive access patterns and user profiles"
+    },
+    "supabase": {
+      "name": "Supabase",
+      "headquarters": "US",
+      "risk_level": "MEDIUM",
+      "category": "Identity",
+      "packages": {
+        "python": [
+          "supabase"
+        ],
+        "javascript": [
+          "@supabase/supabase-js"
+        ],
+        "java": [
+          "io.supabase"
+        ],
+        "csharp": [
+          "Supabase"
+        ],
+        "go": [
+          "github.com/supabase-community/supabase-go"
+        ]
+      },
+      "risk_justification": "US-headquartered identity/database provider; EU deployment options available; requires proper configuration for GDPR"
+    },
+    "firebase_auth": {
+      "name": "Firebase Auth",
+      "headquarters": "US",
+      "risk_level": "MEDIUM",
+      "category": "Identity",
+      "packages": {
+        "python": [
+          "firebase-admin"
+        ],
+        "javascript": [
+          "@firebase/auth"
+        ],
+        "java": [
+          "com.google.firebase.auth"
+        ],
+        "csharp": [
+          "FirebaseAdmin"
+        ],
+        "go": []
+      },
+      "risk_justification": "US-headquartered (Google) identity provider; US infrastructure primary; EU options available with configuration"
+    },
+    "cognito": {
+      "name": "AWS Cognito",
+      "headquarters": "Variable",
+      "risk_level": "MEDIUM",
+      "category": "Identity",
+      "packages": {
+        "python": [
+          "boto3"
+        ],
+        "javascript": [
+          "@aws-sdk/client-cognito-identity-provider",
+          "amazon-cognito-identity-js"
+        ],
+        "java": [
+          "software.amazon.awssdk.services.cognitoidentityprovider"
+        ],
+        "csharp": [
+          "AWSSDK.CognitoIdentityProvider"
+        ],
+        "go": []
+      },
+      "risk_justification": "Global provider with configurable data residency; EU regions available; requires explicit configuration and DPA for GDPR compliance"
+    },
+    "facebook": {
+      "name": "Meta/Facebook",
+      "headquarters": "US",
+      "risk_level": "HIGH",
+      "category": "Social",
+      "packages": {
+        "python": [
+          "facebook-sdk",
+          "facebook-business"
+        ],
+        "javascript": [
+          "fb",
+          "facebook-nodejs-business-sdk"
+        ],
+        "java": [
+          "com.facebook"
+        ],
+        "csharp": [
+          "Facebook"
+        ],
+        "go": []
+      },
+      "risk_justification": "Social platform handling personal profiles and communications; US-headquartered without EU adequacy decision; extensive personal data processing"
+    },
+    "twitter": {
+      "name": "X/Twitter",
+      "headquarters": "US",
+      "risk_level": "HIGH",
+      "category": "Social",
+      "packages": {
+        "python": [
+          "tweepy",
+          "twitter"
+        ],
+        "javascript": [
+          "twitter-api-v2",
+          "twit"
+        ],
+        "java": [
+          "org.twitter4j",
+          "io.github.redouane59.twitter"
+        ],
+        "csharp": [
+          "TweetinviAPI",
+          "LinqToTwitter"
+        ],
+        "go": [
+          "github.com/dghubble/go-twitter",
+          "github.com/g8rswimmer/go-twitter"
+        ]
+      },
+      "risk_justification": "Social platform handling personal profiles and communications; US-headquartered without EU adequacy decision; extensive personal data processing"
+    },
+    "linkedin": {
+      "name": "LinkedIn",
+      "headquarters": "US",
+      "risk_level": "HIGH",
+      "category": "Social",
+      "packages": {
+        "python": [
+          "linkedin-api",
+          "python-linkedin"
+        ],
+        "javascript": [
+          "linkedin-api"
+        ],
+        "java": [
+          "com.linkedin"
+        ],
+        "csharp": [
+          "LinkedIn.Api"
+        ],
+        "go": []
+      },
+      "risk_justification": "Social platform handling personal profiles and communications; US-headquartered without EU adequacy decision; extensive personal data processing"
+    },
+    "slack": {
+      "name": "Slack/Salesforce",
+      "headquarters": "US",
+      "risk_level": "MEDIUM",
+      "category": "Social",
+      "packages": {
+        "python": [
+          "slack-sdk",
+          "slackclient"
+        ],
+        "javascript": [
+          "@slack/web-api",
+          "@slack/bolt"
+        ],
+        "java": [
+          "com.slack.api"
+        ],
+        "csharp": [
+          "SlackAPI"
+        ],
+        "go": [
+          "github.com/slack-go/slack"
+        ]
+      },
+      "risk_justification": "US-headquartered (Salesforce) communication platform; variable data residency; requires proper configuration for GDPR"
+    },
+    "discord": {
+      "name": "Discord",
+      "headquarters": "US",
+      "risk_level": "MEDIUM",
+      "category": "Social",
+      "packages": {
+        "python": [
+          "discord.py",
+          "discord"
+        ],
+        "javascript": [
+          "discord.js"
+        ],
+        "java": [
+          "net.dv8tion.jda"
+        ],
+        "csharp": [
+          "Discord.Net"
+        ],
+        "go": [
+          "github.com/bwmarrin/discordgo"
+        ]
+      },
+      "risk_justification": "US-headquartered communication platform; US data processing primary; limited EU data residency options"
+    },
+    "telegram": {
+      "name": "Telegram",
+      "headquarters": "UAE",
+      "risk_level": "MEDIUM",
+      "category": "Social",
+      "packages": {
+        "python": [
+          "python-telegram-bot",
+          "telethon",
+          "pyrogram"
+        ],
+        "javascript": [
+          "telegraf",
+          "node-telegram-bot-api"
+        ],
+        "java": [
+          "org.telegram"
+        ],
+        "csharp": [
+          "Telegram.Bot"
+        ],
+        "go": [
+          "github.com/go-telegram-bot-api/telegram-bot-api",
+          "gopkg.in/telegram-bot-api.v5"
+        ]
+      },
+      "risk_justification": "UAE-headquartered messaging platform; no EU adequacy for UAE; variable data residency practices"
+    },
+    "mongodb": {
+      "name": "MongoDB Atlas",
+      "headquarters": "Variable",
+      "risk_level": "MEDIUM",
+      "category": "Database",
+      "packages": {
+        "python": [
+          "pymongo",
+          "motor"
+        ],
+        "javascript": [
+          "mongodb",
+          "mongoose"
+        ],
+        "java": [
+          "org.mongodb"
+        ],
+        "csharp": [
+          "MongoDB.Driver"
+        ],
+        "go": [
+          "go.mongodb.org/mongo-driver"
+        ]
+      },
+      "risk_justification": "Global provider with configurable data residency; EU regions available; requires explicit configuration and DPA for GDPR compliance"
+    },
+    "elasticsearch": {
+      "name": "Elastic Cloud",
+      "headquarters": "Variable",
+      "risk_level": "MEDIUM",
+      "category": "Database",
+      "packages": {
+        "python": [
+          "elasticsearch",
+          "opensearch-py"
+        ],
+        "javascript": [
+          "@elastic/elasticsearch",
+          "elasticsearch"
+        ],
+        "java": [
+          "co.elastic.clients",
+          "org.elasticsearch.client"
+        ],
+        "csharp": [
+          "Elastic.Clients.Elasticsearch",
+          "NEST"
+        ],
+        "go": [
+          "github.com/elastic/go-elasticsearch"
+        ]
+      },
+      "risk_justification": "Global provider with configurable data residency; EU regions available; requires explicit configuration and DPA for GDPR compliance"
+    },
+    "algolia": {
+      "name": "Algolia",
+      "headquarters": "US",
+      "risk_level": "MEDIUM",
+      "category": "Database",
+      "packages": {
+        "python": [
+          "algoliasearch"
+        ],
+        "javascript": [
+          "algoliasearch",
+          "@algolia/client-search"
+        ],
+        "java": [
+          "com.algolia"
+        ],
+        "csharp": [
+          "Algolia.Search"
+        ],
+        "go": [
+          "github.com/algolia/algoliasearch-client-go"
+        ]
+      },
+      "risk_justification": "US-headquartered search service; EU hosting available; requires proper configuration for GDPR compliance"
+    },
+    "pinecone": {
+      "name": "Pinecone",
+      "headquarters": "US",
+      "risk_level": "HIGH",
+      "category": "Database",
+      "packages": {
+        "python": [
+          "pinecone-client"
+        ],
+        "javascript": [
+          "@pinecone-database/pinecone"
+        ],
+        "java": [
+          "io.pinecone"
+        ],
+        "csharp": [
+          "Pinecone"
+        ],
+        "go": [
+          "github.com/pinecone-io/go-pinecone"
+        ]
+      },
+      "risk_justification": "US-headquartered service processing personal data; no EU adequacy decision; requires Standard Contractual Clauses (SCCs) for lawful transfer"
+    },
+    "weaviate": {
+      "name": "Weaviate",
+      "headquarters": "US",
+      "risk_level": "MEDIUM",
+      "category": "Database",
+      "packages": {
+        "python": [
+          "weaviate-client"
+        ],
+        "javascript": [
+          "weaviate-ts-client"
+        ],
+        "java": [
+          "io.weaviate"
+        ],
+        "csharp": [
+          "WeaviateClient"
+        ],
+        "go": [
+          "github.com/weaviate/weaviate-go-client"
+        ]
+      },
+      "risk_justification": "US-headquartered vector database; EU deployment options available; requires configuration for GDPR"
+    },
+    "qdrant": {
+      "name": "Qdrant",
+      "headquarters": "Germany/EU",
+      "risk_level": "LOW",
+      "category": "Database",
+      "packages": {
+        "python": [
+          "qdrant-client"
+        ],
+        "javascript": [
+          "@qdrant/js-client-rest"
+        ],
+        "java": [
+          "io.qdrant"
+        ],
+        "csharp": [
+          "Qdrant.Client"
+        ],
+        "go": [
+          "github.com/qdrant/go-client"
+        ]
+      },
+      "risk_justification": "EU/EEA-headquartered (Germany/EU); GDPR-native compliance; data processed within EU jurisdiction by default"
+    },
+    "redis": {
+      "name": "Redis Cloud",
+      "headquarters": "Variable",
+      "risk_level": "MEDIUM",
+      "category": "Database",
+      "packages": {
+        "python": [
+          "redis",
+          "aioredis"
+        ],
+        "javascript": [
+          "redis",
+          "ioredis"
+        ],
+        "java": [
+          "redis.clients.jedis",
+          "io.lettuce"
+        ],
+        "csharp": [
+          "StackExchange.Redis"
+        ],
+        "go": [
+          "github.com/redis/go-redis",
+          "github.com/go-redis/redis"
+        ]
+      },
+      "risk_justification": "Global provider with configurable data residency; EU regions available; requires explicit configuration and DPA for GDPR compliance"
+    },
+    "couchbase": {
+      "name": "Couchbase",
+      "headquarters": "US",
+      "risk_level": "MEDIUM",
+      "category": "Database",
+      "packages": {
+        "python": [
+          "couchbase"
+        ],
+        "javascript": [
+          "couchbase"
+        ],
+        "java": [
+          "com.couchbase.client"
+        ],
+        "csharp": [
+          "CouchbaseNetClient"
+        ],
+        "go": [
+          "github.com/couchbase/gocb"
+        ]
+      },
+      "risk_justification": "US-headquartered database service; EU deployment options available; requires configuration for GDPR compliance"
+    },
+    "cassandra": {
+      "name": "Cassandra/DataStax",
+      "headquarters": "Variable",
+      "risk_level": "MEDIUM",
+      "category": "Database",
+      "packages": {
+        "python": [
+          "cassandra-driver"
+        ],
+        "javascript": [
+          "cassandra-driver"
+        ],
+        "java": [
+          "com.datastax"
+        ],
+        "csharp": [
+          "CassandraCSharpDriver"
+        ],
+        "go": [
+          "github.com/gocql/gocql"
+        ]
+      },
+      "risk_justification": "Global provider with configurable data residency; EU regions available; requires explicit configuration and DPA for GDPR compliance"
+    },
+    "airtable": {
+      "name": "Airtable",
+      "headquarters": "US",
+      "risk_level": "MEDIUM",
+      "category": "Database",
+      "packages": {
+        "python": [
+          "pyairtable",
+          "airtable-python-wrapper"
+        ],
+        "javascript": [
+          "airtable"
+        ],
+        "java": [
+          "com.sybit.airtable"
+        ],
+        "csharp": [
+          "AirtableApiClient"
+        ],
+        "go": []
+      },
+      "risk_justification": "US-headquartered database service; US data processing primary; limited EU data residency options"
+    },
+    "notion": {
+      "name": "Notion",
+      "headquarters": "US",
+      "risk_level": "MEDIUM",
+      "category": "Database",
+      "packages": {
+        "python": [
+          "notion-client"
+        ],
+        "javascript": [
+          "@notionhq/client"
+        ],
+        "java": [
+          "notion.api"
+        ],
+        "csharp": [
+          "Notion.Client"
+        ],
+        "go": []
+      },
+      "risk_justification": "US-headquartered workspace platform; US data processing primary; limited EU data residency options"
+    },
+    "onetrust": {
+      "name": "OneTrust",
+      "headquarters": "US",
+      "risk_level": "MEDIUM",
+      "category": "Consent",
+      "packages": {
+        "python": [],
+        "javascript": [
+          "@onetrust/consent-management-sdk"
+        ],
+        "java": [],
+        "csharp": [],
+        "go": []
+      },
+      "risk_justification": "US-headquartered service; EU data processing options available; requires DPA and proper configuration for GDPR compliance"
+    },
+    "trustarc": {
+      "name": "TrustArc",
+      "headquarters": "US",
+      "risk_level": "MEDIUM",
+      "category": "Consent",
+      "packages": {
+        "python": [],
+        "javascript": [
+          "trustarc-consent"
+        ],
+        "java": [],
+        "csharp": [],
+        "go": []
+      },
+      "risk_justification": "US-headquartered service; EU data processing options available; requires DPA and proper configuration for GDPR compliance"
+    },
+    "cookiebot": {
+      "name": "Cookiebot/Usercentrics",
+      "headquarters": "Denmark/EU",
+      "risk_level": "LOW",
+      "category": "Consent",
+      "packages": {
+        "python": [],
+        "javascript": [
+          "cookiebot"
+        ],
+        "java": [],
+        "csharp": [],
+        "go": []
+      },
+      "risk_justification": "EU/EEA-headquartered (Denmark/EU); GDPR-native compliance; data processed within EU jurisdiction by default"
+    },
+    "osano": {
+      "name": "Osano",
+      "headquarters": "US",
+      "risk_level": "MEDIUM",
+      "category": "Consent",
+      "packages": {
+        "python": [],
+        "javascript": [
+          "@osano/cookie-consent"
+        ],
+        "java": [],
+        "csharp": [],
+        "go": []
+      },
+      "risk_justification": "US-headquartered service; EU data processing options available; requires DPA and proper configuration for GDPR compliance"
+    },
+    "usercentrics": {
+      "name": "Usercentrics",
+      "headquarters": "Germany/EU",
+      "risk_level": "LOW",
+      "category": "Consent",
+      "packages": {
+        "python": [],
+        "javascript": [
+          "@usercentrics/cmp-browser-sdk"
+        ],
+        "java": [],
+        "csharp": [],
+        "go": []
+      },
+      "risk_justification": "EU/EEA-headquartered (Germany/EU); GDPR-native compliance; data processed within EU jurisdiction by default"
+    },
+    "didomi": {
+      "name": "Didomi",
+      "headquarters": "France/EU",
+      "risk_level": "LOW",
+      "category": "Consent",
+      "packages": {
+        "python": [],
+        "javascript": [
+          "@didomi/react",
+          "@didomi/cmp"
+        ],
+        "java": [],
+        "csharp": [],
+        "go": []
+      },
+      "risk_justification": "EU/EEA-headquartered (France/EU); GDPR-native compliance; data processed within EU jurisdiction by default"
+    },
+    "mparticle": {
+      "name": "mParticle",
+      "headquarters": "US",
+      "risk_level": "HIGH",
+      "category": "CDP",
+      "packages": {
+        "python": [
+          "mparticle"
+        ],
+        "javascript": [
+          "@mparticle/web-sdk",
+          "@mparticle/node-sdk"
+        ],
+        "java": [
+          "com.mparticle"
+        ],
+        "csharp": [],
+        "go": []
+      },
+      "risk_justification": "Customer Data Platform aggregating PII across sources; US-headquartered without EU adequacy decision; creates comprehensive user profiles"
+    },
+    "tealium": {
+      "name": "Tealium",
+      "headquarters": "US",
+      "risk_level": "HIGH",
+      "category": "CDP",
+      "packages": {
+        "python": [],
+        "javascript": [
+          "tealium-collect",
+          "@tealium/collect"
+        ],
+        "java": [
+          "com.tealium"
+        ],
+        "csharp": [],
+        "go": []
+      },
+      "risk_justification": "Customer Data Platform aggregating PII across sources; US-headquartered without EU adequacy decision; creates comprehensive user profiles"
+    },
+    "treasure_data": {
+      "name": "Treasure Data",
+      "headquarters": "US",
+      "risk_level": "HIGH",
+      "category": "CDP",
+      "packages": {
+        "python": [
+          "td-client"
+        ],
+        "javascript": [
+          "td-js-sdk"
+        ],
+        "java": [
+          "com.treasure_data"
+        ],
+        "csharp": [],
+        "go": []
+      },
+      "risk_justification": "Customer Data Platform aggregating PII across sources; US-headquartered without EU adequacy decision; creates comprehensive user profiles"
+    },
+    "lytics": {
+      "name": "Lytics",
+      "headquarters": "US",
+      "risk_level": "HIGH",
+      "category": "CDP",
+      "packages": {
+        "python": [
+          "lytics"
+        ],
+        "javascript": [
+          "lytics-js"
+        ],
+        "java": [],
+        "csharp": [],
+        "go": []
+      },
+      "risk_justification": "Customer Data Platform aggregating PII across sources; US-headquartered without EU adequacy decision; creates comprehensive user profiles"
+    },
+    "blueconic": {
+      "name": "BlueConic",
+      "headquarters": "US",
+      "risk_level": "HIGH",
+      "category": "CDP",
+      "packages": {
+        "python": [],
+        "javascript": [
+          "blueconic-sdk"
+        ],
+        "java": [],
+        "csharp": [],
+        "go": []
+      },
+      "risk_justification": "Customer Data Platform aggregating PII across sources; US-headquartered without EU adequacy decision; creates comprehensive user profiles"
+    },
+    "docusign": {
+      "name": "DocuSign",
+      "headquarters": "US",
+      "risk_level": "MEDIUM",
+      "category": "eSignature",
+      "packages": {
+        "python": [
+          "docusign-esign"
+        ],
+        "javascript": [
+          "docusign-esign"
+        ],
+        "java": [
+          "com.docusign"
+        ],
+        "csharp": [
+          "DocuSign.eSign"
+        ],
+        "go": []
+      },
+      "risk_justification": "Electronic signature platform; processes documents potentially containing PII; US-headquartered with EU processing options"
+    },
+    "hellosign": {
+      "name": "HelloSign/Dropbox",
+      "headquarters": "US",
+      "risk_level": "MEDIUM",
+      "category": "eSignature",
+      "packages": {
+        "python": [
+          "hellosign-sdk"
+        ],
+        "javascript": [
+          "hellosign-sdk"
+        ],
+        "java": [
+          "com.hellosign"
+        ],
+        "csharp": [],
+        "go": []
+      },
+      "risk_justification": "Electronic signature platform; processes documents potentially containing PII; US-headquartered with EU processing options"
+    },
+    "pandadoc": {
+      "name": "PandaDoc",
+      "headquarters": "US",
+      "risk_level": "MEDIUM",
+      "category": "eSignature",
+      "packages": {
+        "python": [
+          "pandadoc-python-client"
+        ],
+        "javascript": [
+          "pandadoc-node-client"
+        ],
+        "java": [],
+        "csharp": [],
+        "go": []
+      },
+      "risk_justification": "Electronic signature platform; processes documents potentially containing PII; US-headquartered with EU processing options"
+    },
+    "adobe_sign": {
+      "name": "Adobe Sign",
+      "headquarters": "US",
+      "risk_level": "MEDIUM",
+      "category": "eSignature",
+      "packages": {
+        "python": [
+          "adobe-sign-sdk"
+        ],
+        "javascript": [
+          "@adobe/adobesign-api"
+        ],
+        "java": [
+          "com.adobe.sign"
+        ],
+        "csharp": [],
+        "go": []
+      },
+      "risk_justification": "Electronic signature platform; processes documents potentially containing PII; US-headquartered with EU processing options"
+    },
+    "checkr": {
+      "name": "Checkr",
+      "headquarters": "US",
+      "risk_level": "HIGH",
+      "category": "BackgroundCheck",
+      "packages": {
+        "python": [
+          "checkr-official"
+        ],
+        "javascript": [
+          "checkr-node"
+        ],
+        "java": [],
+        "csharp": [],
+        "go": []
+      },
+      "risk_justification": "Processes highly sensitive personal data (criminal records, employment history, credit); US-headquartered without EU adequacy decision; Article 10 special category data"
+    },
+    "sterling": {
+      "name": "Sterling",
+      "headquarters": "US",
+      "risk_level": "HIGH",
+      "category": "BackgroundCheck",
+      "packages": {
+        "python": [],
+        "javascript": [],
+        "java": [],
+        "csharp": [],
+        "go": []
+      },
+      "risk_justification": "Processes highly sensitive personal data (criminal records, employment history, credit); US-headquartered without EU adequacy decision; Article 10 special category data"
+    },
+    "hireright": {
+      "name": "HireRight",
+      "headquarters": "US",
+      "risk_level": "HIGH",
+      "category": "BackgroundCheck",
+      "packages": {
+        "python": [],
+        "javascript": [],
+        "java": [],
+        "csharp": [],
+        "go": []
+      },
+      "risk_justification": "Processes highly sensitive personal data (criminal records, employment history, credit); US-headquartered without EU adequacy decision; Article 10 special category data"
+    },
+    "goodhire": {
+      "name": "GoodHire",
+      "headquarters": "US",
+      "risk_level": "HIGH",
+      "category": "BackgroundCheck",
+      "packages": {
+        "python": [],
+        "javascript": [],
+        "java": [],
+        "csharp": [],
+        "go": []
+      },
+      "risk_justification": "Processes highly sensitive personal data (criminal records, employment history, credit); US-headquartered without EU adequacy decision; Article 10 special category data"
+    },
+    "marketo": {
+      "name": "Marketo/Adobe",
+      "headquarters": "US",
+      "risk_level": "HIGH",
+      "category": "Marketing",
+      "packages": {
+        "python": [
+          "marketorestpython"
+        ],
+        "javascript": [
+          "marketo-rest-api"
+        ],
+        "java": [
+          "com.marketo"
+        ],
+        "csharp": [],
+        "go": []
+      },
+      "risk_justification": "Marketing automation with behavioral tracking and contact data; US-headquartered without EU adequacy decision; creates detailed user profiles"
+    },
+    "pardot": {
+      "name": "Pardot/Salesforce",
+      "headquarters": "US",
+      "risk_level": "HIGH",
+      "category": "Marketing",
+      "packages": {
+        "python": [
+          "pypardot4"
+        ],
+        "javascript": [
+          "pardot-client"
+        ],
+        "java": [],
+        "csharp": [],
+        "go": []
+      },
+      "risk_justification": "Marketing automation with behavioral tracking and contact data; US-headquartered without EU adequacy decision; creates detailed user profiles"
+    },
+    "klaviyo": {
+      "name": "Klaviyo",
+      "headquarters": "US",
+      "risk_level": "HIGH",
+      "category": "Marketing",
+      "packages": {
+        "python": [
+          "klaviyo-api"
+        ],
+        "javascript": [
+          "klaviyo-api"
+        ],
+        "java": [],
+        "csharp": [],
+        "go": []
+      },
+      "risk_justification": "Marketing automation with behavioral tracking and contact data; US-headquartered without EU adequacy decision; creates detailed user profiles"
+    },
+    "iterable": {
+      "name": "Iterable",
+      "headquarters": "US",
+      "risk_level": "HIGH",
+      "category": "Marketing",
+      "packages": {
+        "python": [
+          "iterable-api"
+        ],
+        "javascript": [
+          "@iterable/web-sdk"
+        ],
+        "java": [],
+        "csharp": [],
+        "go": []
+      },
+      "risk_justification": "Marketing automation with behavioral tracking and contact data; US-headquartered without EU adequacy decision; creates detailed user profiles"
+    },
+    "customerio": {
+      "name": "Customer.io",
+      "headquarters": "US",
+      "risk_level": "HIGH",
+      "category": "Marketing",
+      "packages": {
+        "python": [
+          "customerio"
+        ],
+        "javascript": [
+          "customerio-node"
+        ],
+        "java": [],
+        "csharp": [],
+        "go": []
+      },
+      "risk_justification": "Marketing automation with behavioral tracking and contact data; US-headquartered without EU adequacy decision; creates detailed user profiles"
+    },
+    "activecampaign": {
+      "name": "ActiveCampaign",
+      "headquarters": "US",
+      "risk_level": "HIGH",
+      "category": "Marketing",
+      "packages": {
+        "python": [
+          "activecampaign-python"
+        ],
+        "javascript": [
+          "activecampaign"
+        ],
+        "java": [],
+        "csharp": [],
+        "go": []
+      },
+      "risk_justification": "Marketing automation with behavioral tracking and contact data; US-headquartered without EU adequacy decision; creates detailed user profiles"
+    },
+    "convertkit": {
+      "name": "ConvertKit",
+      "headquarters": "US",
+      "risk_level": "MEDIUM",
+      "category": "Marketing",
+      "packages": {
+        "python": [
+          "convertkit"
+        ],
+        "javascript": [
+          "convertkit-node"
+        ],
+        "java": [],
+        "csharp": [],
+        "go": []
+      },
+      "risk_justification": "Marketing automation platform; US-headquartered; processes contact and behavioral data; EU data options typically available"
+    },
+    "drip": {
+      "name": "Drip",
+      "headquarters": "US",
+      "risk_level": "MEDIUM",
+      "category": "Marketing",
+      "packages": {
+        "python": [
+          "drip-python"
+        ],
+        "javascript": [
+          "drip-nodejs"
+        ],
+        "java": [],
+        "csharp": [],
+        "go": []
+      },
+      "risk_justification": "Marketing automation platform; US-headquartered; processes contact and behavioral data; EU data options typically available"
+    },
+    "sendinblue": {
+      "name": "Brevo/Sendinblue",
+      "headquarters": "France/EU",
+      "risk_level": "LOW",
+      "category": "Marketing",
+      "packages": {
+        "python": [
+          "sib-api-v3-sdk"
+        ],
+        "javascript": [
+          "@sendinblue/client",
+          "sib-api-v3-sdk"
+        ],
+        "java": [
+          "com.sendinblue"
+        ],
+        "csharp": [
+          "sib_api_v3_sdk"
+        ],
+        "go": []
+      },
+      "risk_justification": "EU/EEA-headquartered (France/EU); GDPR-native compliance; data processed within EU jurisdiction by default"
+    }
+  }
+}
