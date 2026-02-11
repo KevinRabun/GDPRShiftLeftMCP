@@ -60,9 +60,9 @@ class TestToolCounting:
         assert count > 0
     
     def test_mcp_tools_count_matches_expected(self):
-        """Should count exactly 28 tools (current state)."""
+        """Should count exactly 34 tools (current state)."""
         count = _count_mcp_tools()
-        assert count == 28
+        assert count == 34
     
     def test_registered_tool_names_not_empty(self):
         """Should find registered tool names."""

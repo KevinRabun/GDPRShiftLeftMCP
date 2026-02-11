@@ -13,7 +13,7 @@ A Model Context Protocol (MCP) server that brings **GDPR compliance knowledge di
 
 ## Features
 
-### 🔍 GDPR Knowledge Base (28 Tools)
+### 🔍 GDPR Knowledge Base (34 Tools)
 - **Article Lookup** — Retrieve any GDPR article by number, search across all 99 articles and 173 recitals
 - **Definitions** — Art. 4 term definitions with contextual explanations
 - **Chapter Navigation** — Browse articles by chapter with full directory
@@ -30,6 +30,16 @@ A Model Context Protocol (MCP) server that brings **GDPR compliance knowledge di
 - **Bicep/Terraform/ARM Analyzer** — Scan IaC for GDPR violations (encryption, access, network, residency, logging, retention)
 - **Application Code Analyzer** — Detect PII logging, hardcoded secrets, missing consent checks, data minimisation issues
 - **GDPR Config Validator** — Pass/fail validation in strict or advisory mode
+- **DSR Capability Analyzer** — Detect implementation of all 7 data subject rights (Arts. 15–22)
+- **Cross-Border Transfer Analyzer** — Identify third-party APIs/SDKs that may transfer data outside EEA, with **risk justifications** explaining why each provider has its assigned risk level (based on headquarters location, adequacy decisions, and data sensitivity)
+- **Breach Readiness Analyzer** — Assess breach detection, logging, and notification capabilities
+- **Data Flow Analyzer** — Map personal data lifecycle (collection, storage, transmission, deletion)
+- **AST Code Analyzer** — Deep analysis using Abstract Syntax Trees for Python, JavaScript, TypeScript, Java, C#, and Go with:
+  - PII detection in function parameters and variables
+  - Cross-border transfer detection via import analysis (150+ providers with risk justifications)
+  - PII logging violation detection
+  - DSR implementation pattern verification
+  - Data flow tracking and call graph analysis
 
 ### 📝 Guided Prompts (8 Expert Prompts)
 - Gap Analysis, DPIA Assessment, Compliance Roadmap, Data Mapping
@@ -135,6 +145,12 @@ gdpr-shift-left-mcp
 | `analyze_code_for_role_indicators` | Detect controller/processor code patterns | Art. 4, 24, 28 |
 | `generate_dpa_checklist` | Art. 28 DPA agreement checklist | Art. 28 |
 | `get_role_scenarios` | Common role classification scenarios | Art. 4, 24, 26, 28 |
+| `analyze_dsr_capabilities` | Detect DSR implementation (access, erase, portability, etc.) | Arts. 15–22 |
+| `analyze_cross_border_transfers` | Detect third-party APIs/SDKs with risk justifications | Arts. 44–49 |
+| `analyze_breach_readiness` | Assess breach detection, logging, and notification capabilities | Arts. 33–34 |
+| `analyze_data_flow` | Map personal data lifecycle (collection, storage, transmission, deletion) | Art. 30 |
+| `analyze_code_ast` | Deep AST analysis for Python/JS/TS/Java/C#/Go (PII, cross-border, DSR) | Art. 5, 25, 32, 44 |
+| `get_ast_capabilities` | Get AST analyzer supported languages and features | All |
 
 ## Architecture
 
@@ -146,13 +162,14 @@ src/gdpr_shift_left_mcp/
 ├── disclaimer.py            # Legal disclaimer utility
 ├── data_loader.py           # Online GDPR data fetching + caching
 ├── tools/
-│   ├── __init__.py          # Tool registration (28 tools)
+│   ├── __init__.py          # Tool registration (34 tools)
 │   ├── articles.py          # Article/recital/search tools
 │   ├── definitions.py       # Art. 4 definition tools
 │   ├── dpia.py              # DPIA assessment tools
 │   ├── ropa.py              # ROPA builder tools
 │   ├── dsr.py               # Data subject rights tools
 │   ├── analyzer.py          # IaC + app code analyzer
+│   ├── ast_analyzer.py      # AST-based deep code analysis
 │   ├── retention.py         # Retention/deletion tools
 │   └── role_classifier.py   # Controller/processor role classification
 ├── prompts/
