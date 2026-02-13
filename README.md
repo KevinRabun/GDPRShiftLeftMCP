@@ -74,6 +74,30 @@ A Model Context Protocol (MCP) server that brings **GDPR compliance knowledge di
 
 ### Installation
 
+#### Install from the MCP Registry (recommended)
+
+The server is published to the [MCP Registry](https://registry.modelcontextprotocol.io). You can install it directly in VS Code:
+
+1. Open the Extensions view (`Ctrl+Shift+X`)
+2. Type `@mcp GDPR` in the search field
+3. Click **Install** on "GDPR Shift-Left Compliance"
+
+> **Note:** The VS Code MCP gallery shows a curated subset of servers by default. If the server doesn't appear, add this to your VS Code **User Settings** (`Ctrl+,` → Open Settings JSON):
+>
+> ```json
+> "chat.mcp.gallery.serviceUrl": "https://registry.modelcontextprotocol.io"
+> ```
+>
+> This points VS Code at the full MCP Registry (5,000+ servers) instead of GitHub's curated list.
+
+#### Install via uvx (no clone needed)
+
+```bash
+uvx gdpr-shift-left-mcp
+```
+
+#### Install from source
+
 ```bash
 # Clone the repository
 git clone https://github.com/KevinRabun/GDPRShiftLeftMCP.git
